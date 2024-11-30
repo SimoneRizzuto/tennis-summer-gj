@@ -5,8 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qc4k2"]
 
 [node name="Ball" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 13
 mass = 0.25
-gravity_scale = 0.0
 script = ExtResource("1_513yo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +19,4 @@ offset_top = -7.0
 offset_right = 7.0
 offset_bottom = 7.0
 color = Color(0.690196, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
