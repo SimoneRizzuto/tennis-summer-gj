@@ -1,25 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://doucinh0vgpp3"]
+[gd_scene load_steps=6 format=3 uid="uid://doucinh0vgpp3"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_lo1ad"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_xnc1r"]
 [ext_resource type="PackedScene" uid="uid://p4gwka6eqjmq" path="res://Scenes/Net/Net.tscn" id="3_c76oe"]
-[ext_resource type="PackedScene" uid="uid://bvnc8sc46vdfs" path="res://Scenes/Ball/Ball.tscn" id="4_lws5r"]
-[ext_resource type="PackedScene" uid="uid://dwhgqudtl4dlj" path="res://Scenes/Ball/Shadow.tscn" id="5_cjgqn"]
+[ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="5_hpq4r"]
 [ext_resource type="PackedScene" uid="uid://d3kfg73ywy54a" path="res://Scenes/Ball/Wall.tscn" id="5_l8aqt"]
-[ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="6_rqxae"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lo1ad")
-
-[node name="Ball Nodes" type="Node2D" parent="."]
-
-[node name="Ball" parent="Ball Nodes" instance=ExtResource("4_lws5r")]
-position = Vector2(402, 369)
-
-[node name="Shadow" parent="Ball Nodes" instance=ExtResource("5_cjgqn")]
-position = Vector2(402, 386)
-script = ExtResource("6_rqxae")
 
 [node name="Player" parent="." instance=ExtResource("2_xnc1r")]
 position = Vector2(401, 453)
@@ -30,3 +19,6 @@ position = Vector2(194, 321)
 [node name="Wall" parent="." instance=ExtResource("5_l8aqt")]
 position = Vector2(94, 0)
 scale = Vector2(1.7289, 0.819236)
+
+[node name="BallModule" parent="." instance=ExtResource("5_hpq4r")]
+position = Vector2(404, 370)

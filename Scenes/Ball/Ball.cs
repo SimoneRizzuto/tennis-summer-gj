@@ -6,13 +6,13 @@ public partial class Ball : RigidBody2D
     // modify Mass, Friction or Bounce
     
     
-    private double height = 50;
+    public double CurrentHeight = 50;
     private double heightDropSpeed = 2; 
 
     public override void _PhysicsProcess(double delta)
     {
         
-        
+        Position
 
 
 
