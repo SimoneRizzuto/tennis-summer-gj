@@ -3,7 +3,7 @@ using System;
 using TennisSummerGJ2024.UtilityClasses.Helpers;
 using TennisSummerGJ2024.UtilityClasses.Shared;
 
-public partial class Shadow : StaticBody2D
+public partial class Shadow : RigidBody2D
 {
     private Ball ball;
     
@@ -14,6 +14,6 @@ public partial class Shadow : StaticBody2D
 
     public override void _Process(double delta)
     {
-        Position = ball.Position - new Vector2(0, -(float)ball.CurrentHeight);
+        //Position = ball.Position - new Vector2(0, -(float)ball.CurrentHeight);
     }
 }

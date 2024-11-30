@@ -1,18 +1,29 @@
 using Godot;
 using System;
+using TennisSummerGJ2024.UtilityClasses.Helpers;
 
-public partial class Ball : RigidBody2D
+public partial class Ball : StaticBody2D
 {
     // modify Mass, Friction or Bounce
     
+    private Shadow shadow;
+    
     
     public double CurrentHeight = 50;
-    private double heightDropSpeed = 2; 
+    private double heightDropSpeed = 2;
+
+
+    public override void _Ready()
+    {
+        shadow ??= GetNodeHelper.GetShadow(GetTree());
+    }
 
     public override void _PhysicsProcess(double delta)
     {
         
-        Position
+        Position = shadow.Position - new Vector2(0, (float)CurrentHeight);
+        
+        //Position
 
 
 

@@ -29,4 +29,16 @@ public static class GetNodeHelper
         
         return ball;
     }
+    
+    public static Shadow GetShadow(SceneTree tree)
+    {
+        var shadowNodes = tree.GetNodesInGroup(NodeGroup.Shadow);
+        var shadow = shadowNodes.Cast<Shadow>().FirstOrDefault();
+        if (shadow == null)
+        {
+            GD.PrintErr($"{nameof(shadow)} was null.");
+        }
+        
+        return shadow;
+    }
 }

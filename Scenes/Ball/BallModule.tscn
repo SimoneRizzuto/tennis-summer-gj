@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddh2y5rcru4ha"]
+[gd_scene load_steps=5 format=3 uid="uid://ddh2y5rcru4ha"]
 
-[ext_resource type="PackedScene" uid="uid://dwhgqudtl4dlj" path="res://Scenes/Ball/Shadow.tscn" id="1_s7m4u"]
 [ext_resource type="Script" path="res://Scenes/Ball/Ball.cs" id="1_yk8th"]
+[ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="2_p1ok4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyq14"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpab"]
+size = Vector2(12, 6)
+
 [node name="BallModule" type="Node2D"]
 
-[node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]
+[node name="Ball" type="StaticBody2D" parent="." groups=["ball"]]
 position = Vector2(0, -45)
 collision_layer = 4
 collision_mask = 13
-mass = 0.25
-lock_rotation = true
 script = ExtResource("1_yk8th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_yyq14")
 
-[node name="ColorRect" type="ColorRect" parent="Ball"]
+[node name="BallShape" type="ColorRect" parent="Ball"]
 offset_left = -7.0
 offset_top = -7.0
 offset_right = 7.0
@@ -26,4 +27,18 @@ offset_bottom = 7.0
 color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Shadow" parent="." instance=ExtResource("1_s7m4u")]
+[node name="Shadow" type="RigidBody2D" parent="." groups=["shadow"]]
+collision_layer = 4
+collision_mask = 13
+script = ExtResource("2_p1ok4")
+
+[node name="ColorRect" type="ColorRect" parent="Shadow"]
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 6.0
+offset_bottom = 3.0
+scale = Vector2(1.39523, 1.99098)
+color = Color(0, 0, 0, 1)
+
+[node name="ShadowShape" type="CollisionShape2D" parent="Shadow"]
+shape = SubResource("RectangleShape2D_mvpab")

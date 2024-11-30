@@ -12,4 +12,5 @@ public static class NodeGroup
 {
     public const string Player = "player";
     public const string Ball = "ball";
+    public const string Shadow = "shadow";
 }
