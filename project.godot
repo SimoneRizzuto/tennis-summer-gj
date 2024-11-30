@@ -54,9 +54,10 @@ project/assembly_name="Tennis Summer GJ 2024"
 
 [layer_names]
 
-2d_physics/layer_1="ground level"
-2d_physics/layer_2="eye level"
-2d_physics/layer_3="sky level"
+2d_physics/layer_1="shadow level"
+2d_physics/layer_2="ground level"
+2d_physics/layer_3="eye level"
+2d_physics/layer_4="sky level"
 
 [physics]
 
