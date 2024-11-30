@@ -14,6 +14,6 @@ public partial class Shadow : RigidBody2D
 
     public override void _Process(double delta)
     {
-        //Position = ball.Position - new Vector2(0, -(float)ball.CurrentHeight);
+        
     }
 }
