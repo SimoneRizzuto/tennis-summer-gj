@@ -9,7 +9,7 @@ public static class GetNodeHelper
 {
     public static Player GetPlayer(SceneTree tree)
     {
-        var playerNodes = tree.GetNodesInGroup(NodeGroup.Ball);
+        var playerNodes = tree.GetNodesInGroup(NodeGroup.Player);
         var player = playerNodes.Cast<Player>().FirstOrDefault();
         if (player == null)
         {
