@@ -14,6 +14,6 @@ public partial class Shadow : StaticBody2D
 
     public override void _Process(double delta)
     {
-        Position = ball.Position - new Vector2(0, -20);
+        Position = ball.GlobalPosition - new Vector2(0, -20);
     }
 }
