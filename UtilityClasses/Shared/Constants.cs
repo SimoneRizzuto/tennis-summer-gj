@@ -7,3 +7,9 @@ public static class InputMapAction
     public const string MoveRight = "move right";
     public const string Swing = "swing";
 }
+
+public static class NodeGroup
+{
+    public const string Player = "player";
+    public const string Ball = "ball";
+}
