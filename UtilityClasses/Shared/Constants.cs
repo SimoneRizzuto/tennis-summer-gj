@@ -14,3 +14,11 @@ public static class NodeGroup
     public const string Ball = "ball";
     public const string Shadow = "shadow";
 }
+
+public static class HeightLevel
+{
+    public const int Shadow = 1;
+    public const int Ground = 2;
+    public const int Eye = 4;
+    public const int Sky = 8;
+}

@@ -14,5 +14,18 @@ public partial class Shadow : RigidBody2D
 
     public override void _Process(double delta)
     {
+        ProcessBallHeight();
+    }
+
+    private void ProcessBallHeight()
+    {
+        if (ball.DistanceToGround <= 15)
+        {
+            CollisionMask = HeightLevel.Shadow + HeightLevel.Ground + HeightLevel.Eye + HeightLevel.Sky;
+        }
+        else
+        {
+            CollisionMask = HeightLevel.Shadow + HeightLevel.Eye + HeightLevel.Sky;
+        }
     }
 }
