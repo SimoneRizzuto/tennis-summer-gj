@@ -1,5 +1,4 @@
-namespace TennisSummerGJ2024.scenes.shared;
-
+namespace TennisSummerGJ2024.UtilityClasses.Shared;
 public static class InputMapAction
 {
     public const string MoveUp = "move up";

@@ -1,9 +1,9 @@
 using System;
 using Godot;
-using TennisSummerGJ2024.scenes.extensions;
-using TennisSummerGJ2024.scenes.shared;
+using TennisSummerGJ2024.UtilityClasses.Extensions;
+using TennisSummerGJ2024.UtilityClasses.Shared;
 
-namespace TennisSummerGJ2024.scenes;
+namespace TennisSummerGJ2024.Scenes.Player;
 public partial class Player : CharacterBody2D
 {
     private float moveSpeed = 10000f;

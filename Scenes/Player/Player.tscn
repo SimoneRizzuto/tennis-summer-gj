@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://uuvld6o0wfn8"]
+[gd_scene load_steps=3 format=3 uid="uid://w8khwh583how"]
 
-[ext_resource type="Script" path="res://scenes/Player.cs" id="1_wjpip"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_3e4ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3wec"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_wjpip")
+script = ExtResource("1_3e4ad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_w3wec")

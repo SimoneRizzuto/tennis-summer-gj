@@ -1,7 +1,7 @@
 using System;
 using Godot;
 
-namespace TennisSummerGJ2024.scenes.extensions;
+namespace TennisSummerGJ2024.UtilityClasses.Extensions;
 public static class VectorExtensions
 {
     public static Vector2 Round(this Vector2 vector, int decimalPlaces = 1)
