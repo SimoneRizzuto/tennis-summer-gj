@@ -13,11 +13,11 @@ public partial class Ball : RigidBody2D
     {
         
         
-        
-        
-        
-        
-        //Position -= new Vector2(0, -2);
+
+
+
+        GD.Print("Ball - GLOBAL POSITION: " + GlobalPosition);
+        GD.Print("Ball - POSITION: " + Position);
 
         /*var currentHeight = Position.Y;
 
@@ -40,6 +40,5 @@ public partial class Ball : RigidBody2D
     }*/
     
     
-    /*GD.Print("Ball - GLOBAL POSITION: " + GlobalPosition);
-GD.Print("Ball - POSITION: " + Position);*/
+    /*;*/
 }
