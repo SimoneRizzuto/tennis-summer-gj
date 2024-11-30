@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://p4gwka6eqjmq"]
+
+[ext_resource type="Script" path="res://Scenes/Net/Net.cs" id="1_pkxfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp36m"]
+size = Vector2(566, 4)
+
+[node name="Net" type="StaticBody2D"]
+script = ExtResource("1_pkxfg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -28.0
+offset_right = 566.0
+color = Color(0.592157, 0.592157, 0.592157, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(283, -2)
+shape = SubResource("RectangleShape2D_vp36m")
