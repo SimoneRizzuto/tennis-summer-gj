@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvnc8sc46vdfs"]
+[gd_scene load_steps=3 format=3 uid="uid://bvnc8sc46vdfs"]
+
+[ext_resource type="Script" path="res://Scenes/Ball/Ball.cs" id="1_513yo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qc4k2"]
 
 [node name="Ball" type="RigidBody2D"]
 mass = 0.25
 gravity_scale = 0.0
+script = ExtResource("1_513yo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qc4k2")
