@@ -4,7 +4,6 @@ using TennisSummerGJ2024.Scenes.Player;
 using TennisSummerGJ2024.UtilityClasses.Shared;
 
 namespace TennisSummerGJ2024.UtilityClasses.Helpers;
-
 public static class GetNodeHelper
 {
     public static Player GetPlayer(SceneTree tree)
