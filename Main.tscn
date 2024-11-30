@@ -10,6 +10,9 @@
 y_sort_enabled = true
 script = ExtResource("1_lo1ad")
 
+[node name="BallModule" parent="." instance=ExtResource("5_hpq4r")]
+position = Vector2(404, 370)
+
 [node name="Player" parent="." instance=ExtResource("2_xnc1r")]
 position = Vector2(401, 453)
 
@@ -19,6 +22,3 @@ position = Vector2(194, 321)
 [node name="Wall" parent="." instance=ExtResource("5_l8aqt")]
 position = Vector2(94, 0)
 scale = Vector2(1.7289, 0.819236)
-
-[node name="BallModule" parent="." instance=ExtResource("5_hpq4r")]
-position = Vector2(404, 370)
