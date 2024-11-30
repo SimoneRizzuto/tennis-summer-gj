@@ -14,6 +14,5 @@ public partial class Shadow : RigidBody2D
 
     public override void _Process(double delta)
     {
-        
     }
 }

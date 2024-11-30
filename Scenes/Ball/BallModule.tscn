@@ -1,19 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddh2y5rcru4ha"]
+[gd_scene load_steps=6 format=3 uid="uid://ddh2y5rcru4ha"]
 
 [ext_resource type="Script" path="res://Scenes/Ball/Ball.cs" id="1_yk8th"]
 [ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="2_p1ok4"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fx7oe"]
+rough = true
+bounce = 0.75
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyq14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpab"]
-size = Vector2(14, 8)
+size = Vector2(12, 6)
 
 [node name="BallModule" type="Node2D"]
 
-[node name="Ball" type="StaticBody2D" parent="." groups=["ball"]]
+[node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]
 position = Vector2(0, -45)
-collision_layer = 4
-collision_mask = 13
+collision_layer = 0
+physics_material_override = SubResource("PhysicsMaterial_fx7oe")
+gravity_scale = 0.5
 script = ExtResource("1_yk8th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
@@ -29,8 +34,11 @@ color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Shadow" type="RigidBody2D" parent="." groups=["shadow"]]
-collision_layer = 4
+collision_layer = 5
 collision_mask = 13
+gravity_scale = 0.0
+center_of_mass_mode = 1
+lock_rotation = true
 script = ExtResource("2_p1ok4")
 
 [node name="ShadowRect" type="ColorRect" parent="Shadow"]
@@ -42,5 +50,4 @@ scale = Vector2(1.39523, 1.99098)
 color = Color(0, 0, 0, 1)
 
 [node name="ShadowShape" type="CollisionShape2D" parent="Shadow"]
-position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mvpab")
