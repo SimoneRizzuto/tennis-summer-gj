@@ -8,8 +8,8 @@ bounce = 1.0
 size = Vector2(486, 54)
 
 [node name="Wall" type="StaticBody2D"]
-collision_layer = 14
-collision_mask = 14
+collision_layer = 30
+collision_mask = 30
 physics_material_override = SubResource("PhysicsMaterial_c0052")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
