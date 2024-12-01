@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://p4gwka6eqjmq"]
+[gd_scene load_steps=4 format=3 uid="uid://p4gwka6eqjmq"]
 
 [ext_resource type="Script" path="res://Scenes/Net/Net.cs" id="1_pkxfg"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eoyc1"]
+friction = 0.0
+bounce = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp36m"]
 size = Vector2(566, 4)
@@ -8,6 +12,7 @@ size = Vector2(566, 4)
 [node name="Net" type="StaticBody2D" groups=["net"]]
 collision_layer = 2
 collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_eoyc1")
 script = ExtResource("1_pkxfg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
