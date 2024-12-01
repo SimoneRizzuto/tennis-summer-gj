@@ -9,7 +9,7 @@ size = Vector2(84, 77.5)
 size = Vector2(20, 9)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 6
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_3e4ad")
 
@@ -17,6 +17,7 @@ script = ExtResource("1_3e4ad")
 collision_mask = 13
 
 [node name="SwingRect" type="ColorRect" parent="SwingArea"]
+visible = false
 offset_left = -42.0
 offset_top = -87.0
 offset_right = 42.0
