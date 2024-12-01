@@ -83,9 +83,14 @@ public partial class Player : CharacterBody2D
                 StopSwing();
             }
         }
-        else if (Input.IsActionJustPressed(InputMapAction.Swing))
+        else if (Input.IsActionJustPressed(InputMapAction.SwingDown))
         {
-            GD.Print("Swinging...");
+            GD.Print("Swinging down...");
+            swingDurationTimer.Restart();
+        }
+        else if (Input.IsActionJustPressed(InputMapAction.SwingUp))
+        {
+            GD.Print("Swinging up...");
             swingDurationTimer.Restart();
         }
     }

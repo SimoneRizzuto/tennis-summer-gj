@@ -5,7 +5,8 @@ public static class InputMapAction
     public const string MoveDown = "move down";
     public const string MoveLeft = "move left";
     public const string MoveRight = "move right";
-    public const string Swing = "swing";
+    public const string SwingDown = "swing down";
+    public const string SwingUp = "swing up";
 }
 
 public static class NodeGroup
