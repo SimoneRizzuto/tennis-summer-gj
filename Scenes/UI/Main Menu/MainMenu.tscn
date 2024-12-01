@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy1s7v4k78mn0"]
+[gd_scene load_steps=4 format=3 uid="uid://cy1s7v4k78mn0"]
 
 [ext_resource type="FontFile" uid="uid://bnmhqh7pxbexd" path="res://ReaperFont.ttf" id="1_3akci"]
+[ext_resource type="Script" path="res://Scenes/UI/Main Menu/MainMenu.cs" id="1_hncj5"]
 [ext_resource type="Script" path="res://Scenes/UI/Main Menu/QuitButton.cs" id="2_rbhay"]
 
 [node name="MainMenu" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hncj5")
 
 [node name="BeginButton" type="Button" parent="."]
 layout_mode = 0
@@ -20,15 +22,14 @@ offset_bottom = 306.0
 theme_override_fonts/font = ExtResource("1_3akci")
 text = "Begin"
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="FullscreenButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 531.0
 offset_top = 307.0
 offset_right = 743.0
 offset_bottom = 336.0
 theme_override_fonts/font = ExtResource("1_3akci")
-text = "Settings
-"
+text = "Fullscreen"
 
 [node name="CreditsButton" type="Button" parent="."]
 layout_mode = 0
