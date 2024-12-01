@@ -41,4 +41,16 @@ public static class GetNodeHelper
         
         return shadow;
     }
+    
+    public static Net GetNet(SceneTree tree)
+    {
+        var netNodes = tree.GetNodesInGroup(NodeGroup.Net);
+        var net = netNodes.Cast<Net>().FirstOrDefault();
+        if (net == null)
+        {
+            GD.PrintErr($"{nameof(net)} was null.");
+        }
+        
+        return net;
+    }
 }

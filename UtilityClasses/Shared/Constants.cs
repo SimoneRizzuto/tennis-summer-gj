@@ -13,6 +13,7 @@ public static class NodeGroup
     public const string Player = "player";
     public const string Ball = "ball";
     public const string Shadow = "shadow";
+    public const string Net = "net";
 }
 
 public static class HeightLevel
@@ -20,5 +21,6 @@ public static class HeightLevel
     public const int Shadow = 1;
     public const int Net = 2;
     public const int Eye = 4;
-    public const int Sky = 8;
+    public const int Arm = 8;
+    public const int Sky = 16;
 }

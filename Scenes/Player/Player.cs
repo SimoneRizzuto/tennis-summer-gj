@@ -18,7 +18,8 @@ public partial class Player : CharacterBody2D
         get
         {
             if (shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Net
-                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Eye)
+                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Eye
+                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Arm)
             {
                 return true;
             }
