@@ -1,10 +1,27 @@
 using Godot;
 using System;
+using System.Linq;
+using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Main : Node2D
 {
-    public override void _Ready()
+    private void SortNodesByGlobalPosition()
     {
-        
+        // Get all child nodes of the current node
+        var children = GetChildren();
+
+        // Filter out only Node2D-derived objects if needed (e.g., sprites, etc.)
+        var node2DChildren = children.OfType<Node2D>().ToList();
+
+        // Sort the nodes based on their GlobalPosition's Y value
+        node2DChildren.Sort((a, b) => a.GlobalPosition.Y.CompareTo(b.GlobalPosition.Y));
+
+        // Now the nodes are sorted by their global Y position
+        // If you want to reorder them in the scene tree, you can do this:
+        for (int i = 0; i < node2DChildren.Count; i++)
+        {
+            // Reorder nodes by moving them in the scene tree
+            node2DChildren[i].GetParent().MoveChild(node2DChildren[i], i);
+        }
     }
 }
