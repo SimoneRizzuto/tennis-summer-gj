@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://doucinh0vgpp3"]
+[gd_scene load_steps=7 format=3 uid="uid://doucinh0vgpp3"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_lo1ad"]
+[ext_resource type="PackedScene" uid="uid://cy1s7v4k78mn0" path="res://Scenes/UI/Main Menu/MainMenu.tscn" id="2_w5vyw"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_xnc1r"]
 [ext_resource type="PackedScene" uid="uid://p4gwka6eqjmq" path="res://Scenes/Net/Net.tscn" id="3_c76oe"]
 [ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="5_hpq4r"]
@@ -9,6 +10,8 @@
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_lo1ad")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_w5vyw")]
 
 [node name="BallModule" parent="." instance=ExtResource("5_hpq4r")]
 position = Vector2(403, 393)
