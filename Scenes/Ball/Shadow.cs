@@ -23,9 +23,12 @@ public partial class Shadow : RigidBody2D
 
     public override void _Process(double delta)
     {
-        if (ball == null)
+        ball = GetNodeHelper.GetBall(GetTree());
+        net = GetNodeHelper.GetNet(GetTree());
+        player = GetNodeHelper.GetPlayer(GetTree());
+        
+        if (ball == null || net == null || player == null)
         {
-            ball = GetNodeHelper.GetBall(GetTree());
             return;
         }
         

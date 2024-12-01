@@ -8,4 +8,9 @@ public partial class Net : Node2D
     {
         NetShape = GetNode<ColorRect>("ColorRect");
     }
+
+    public override void _Process(double delta)
+    {
+        NetShape = GetNode<ColorRect>("ColorRect");
+    }
 }

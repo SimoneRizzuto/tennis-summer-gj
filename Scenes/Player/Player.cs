@@ -56,6 +56,11 @@ public partial class Player : CharacterBody2D
     
     public override void _PhysicsProcess(double delta)
     {
+        ball = GetNodeHelper.GetBall(GetTree());
+        shadow = GetNodeHelper.GetShadow(GetTree());
+        swingArea = GetNode<Area2D>("SwingArea");
+        playerRect = GetNode<ColorRect>("PlayerRect");
+        
         ProcessMovement(delta);
 
         ProcessSwinging(delta);
