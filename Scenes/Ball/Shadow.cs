@@ -19,13 +19,14 @@ public partial class Shadow : RigidBody2D
 
     private void ProcessBallHeight()
     {
-        if (ball.DistanceToGround <= 15)
+        var groundHeightThreshold = ball.DistanceToGround <= 35;
+        if (groundHeightThreshold)
         {
-            CollisionMask = HeightLevel.Shadow + HeightLevel.Ground + HeightLevel.Eye + HeightLevel.Sky;
+            CollisionMask = HeightLevel.Shadow + HeightLevel.Ground + HeightLevel.Eye + HeightLevel.Sky; // 15
         }
         else
         {
-            CollisionMask = HeightLevel.Shadow + HeightLevel.Eye + HeightLevel.Sky;
+            CollisionMask = HeightLevel.Shadow + HeightLevel.Eye + HeightLevel.Sky; // 13
         }
     }
 }
