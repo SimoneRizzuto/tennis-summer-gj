@@ -18,5 +18,7 @@ public partial class Ball : RigidBody2D
     public override void _Process(double delta)
     {
         shadow = GetNodeHelper.GetShadow(GetTree());
+        
+        GD.Print($"Ball: {LinearVelocity}");
     }
 }

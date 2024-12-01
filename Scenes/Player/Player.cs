@@ -134,58 +134,48 @@ public partial class Player : CharacterBody2D
             case SwingDirection.Up:
                 if (height < 5) // big hit
                 {
-                    ballY = 30000;
+                    ballY = 800;
                     shadowY = 250;
                 }
                 else if (height < 10)
                 {
-                    ballY = 26500;
+                    ballY = 700;
                     shadowY = 250;
                 }
                 else if (height < 20)
                 {
-                    ballY = 22500;
+                    ballY = 600;
                     shadowY = 250;
                 }
                 else if (height < 40)
                 {
-                    ballY = 20000;
+                    ballY = 500;
                     shadowY = 250;
                 }
                 break;
             case SwingDirection.Down:
                 if (height < 20)
                 {
-                    ballY = 22500;
-                    shadowY = 250;
+                    ballY = 500;
+                    shadowY = 500;
                 }
                 else if (height < 30)
                 {
-                    ballY = 22500;
-                    shadowY = 300;
+                    ballY = 500;
+                    shadowY = 500;
                 }
                 else if (height < 40)
                 {
-                    ballY = 22500;
-                    shadowY = 400;
+                    ballY = 500;
+                    shadowY = 500;
                 }
                 else if (height < 50) // big hit
                 {
-                    ballY = 22500;
+                    ballY = 500;
                     shadowY = 500;
                 }
                 break;
         }
-
-        
-        //ball.AddConstantForce(new(0, -ballY));
-        //shadow.AddConstantForce(new(0, -shadowY));
-        
-        //ball.ApplyForce(new(0, -ballY));
-        //shadow.ApplyForce(new(0, -shadowY));
-
-        //ball.ApplyForce(new(0, -ballY));
-        //shadow.LinearVelocity = new(0, -shadowY);
         
         ball.LinearVelocity = new(0, -ballY);
         shadow.LinearVelocity = new(0, -shadowY);
