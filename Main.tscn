@@ -11,14 +11,18 @@ y_sort_enabled = true
 script = ExtResource("1_lo1ad")
 
 [node name="BallModule" parent="." instance=ExtResource("5_hpq4r")]
-position = Vector2(402, 401)
+position = Vector2(412, 298)
 
 [node name="Player" parent="." instance=ExtResource("2_xnc1r")]
-position = Vector2(407, 519)
+position = Vector2(411, 360)
 
 [node name="Net" parent="." instance=ExtResource("3_c76oe")]
-position = Vector2(194, 321)
+position = Vector2(-664, 132)
 
 [node name="Wall" parent="." instance=ExtResource("5_l8aqt")]
 position = Vector2(94, 0)
+scale = Vector2(1.7289, 0.819236)
+
+[node name="Wall" parent="Wall" instance=ExtResource("5_l8aqt")]
+position = Vector2(-153.855, 797.084)
 scale = Vector2(1.7289, 0.819236)
