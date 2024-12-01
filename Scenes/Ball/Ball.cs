@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using TennisSummerGJ2024.UtilityClasses.Helpers;
+using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Ball : RigidBody2D
 {
@@ -25,13 +26,8 @@ public partial class Ball : RigidBody2D
          */
         
         //GlobalPosition = shadow.GlobalPosition - new Vector2(0, (float)CurrentHeight);
-
-
-
         
-        
-        GD.Print("Ball - GLOBAL POSITION: " + GlobalPosition);
-        GD.Print("Ball - POSITION: " + Position);
-        GD.Print("Distance To: " + DistanceToGround);
+        //GD.Print($"Ball - GLOBAL POSITION: {GlobalPosition}, Ball - POSITION: {Position}");
+        //GD.Print("Distance To: " + DistanceToGround);
     }
 }
