@@ -5,8 +5,7 @@ using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Ball : RigidBody2D
 {
-    public double CurrentHeight = 50;
-    public float DistanceToGround => GlobalPosition.DistanceTo(shadow.GlobalPosition);
+    public float Height => GlobalPosition.DistanceTo(shadow.GlobalPosition);
 
     private double heightDropSpeed = 2;
     private Shadow shadow;

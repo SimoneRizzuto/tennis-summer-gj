@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="2_p1ok4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpab"]
-size = Vector2(14, 6)
+size = Vector2(26, 12)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fx7oe"]
 rough = true
@@ -26,6 +26,7 @@ scale = Vector2(1.39523, 1.99098)
 color = Color(0, 0, 0, 1)
 
 [node name="ShadowShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_mvpab")
 
 [node name="Ball" type="RigidBody2D" parent="." groups=["ball"]]

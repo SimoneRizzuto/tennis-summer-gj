@@ -9,6 +9,10 @@ public partial class Shadow : RigidBody2D
     private Ball ball;
     private Net net;
     private Player player;
+
+    public float NetHeight => net.NetShape.GetRect().Size.Y;
+    public int PlayerHeight => 40; // get from player variable
+    public int ArmHeight => 60; // get from player variable
     
     public override void _Ready()
     {
@@ -24,22 +28,19 @@ public partial class Shadow : RigidBody2D
 
     private void ProcessBallHeight()
     {
-        var netHeight = net.NetShape.GetRect().Size.Y;
-        var playerHeight = 40; // get from player variable
-        
-        if (ball.DistanceToGround <= netHeight - 1)
+        if (ball.Height <= NetHeight - 1)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Net;
         }
-        else if (ball.DistanceToGround <= playerHeight)
+        else if (ball.Height <= PlayerHeight)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Eye;
         }
-        else if (ball.DistanceToGround <= 60)
+        else if (ball.Height <= ArmHeight)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Arm;
         }
-        else
+        else // too high to reach
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Sky;
         }

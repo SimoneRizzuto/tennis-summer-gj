@@ -92,10 +92,29 @@ public partial class Player : CharacterBody2D
 
     private void ApplyForce()
     {
-        var heightForce = 15 * 1000;
+        var height = ball.Height;
+
+        int yForce = 0;
         
-        ball.ApplyForce(new(0, -heightForce/* / 1000*/));
-        shadow.ApplyForce(new(0, -heightForce));
+        if (height < 20)
+        {
+            yForce = 15 * 1000;
+        }
+        else if (height < 30)
+        {
+            yForce = 17 * 1000;
+        }
+        else if (height < 40)
+        {
+            yForce = 19 * 1000;
+        }
+        else if (height < 50) // big hit, aims down
+        {
+            yForce = 21 * 1000;
+        }
+        
+        ball.ApplyForce(new(0, -yForce/* / 1000*/));
+        shadow.ApplyForce(new(0, -yForce));
     }
     
     private void StopSwing()
