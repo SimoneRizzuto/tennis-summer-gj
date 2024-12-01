@@ -14,6 +14,7 @@ public partial class Player : CharacterBody2D
     private ColorRect playerRect;
 
     private SwingDirection swingDirection = 0;
+    private Direction lastMovedDirection = Direction.None;
 
     private bool IsSwinging => swingDurationTimer.IsRunning;
     private bool IsReachableHeight
@@ -76,6 +77,20 @@ public partial class Player : CharacterBody2D
         
         var roundedPosition = Position.RoundToNearestValue(0.25f);
         Position = roundedPosition;
+        
+        
+        lastMovedDirection = Direction.None;
+
+        if (movementVector != Vector2.Zero)
+        {
+            var direction = DirectionHelper.GetSnappedDirection(movementVector);
+            if (direction == Direction.Left || direction == Direction.Right)
+            {
+                lastMovedDirection = direction;
+            }
+        }
+        
+        Console.WriteLine(lastMovedDirection);
     }
 
     private void ProcessSwinging(double delta)
@@ -176,11 +191,22 @@ public partial class Player : CharacterBody2D
                 }
                 break;
         }
+
+        var shadowX = 0;
         
-        ball.LinearVelocity = new(0, -ballY);
-        shadow.LinearVelocity = new(0, -shadowY);
+        if (lastMovedDirection == Direction.Left)
+        {
+            shadowX = -200;
+        }
+        else if (lastMovedDirection == Direction.Right)
+        {
+            shadowX = 200;
+        }
         
-        GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
+        shadow.LinearVelocity = new(shadowX, -shadowY);
+        ball.LinearVelocity = new(shadowX, -ballY);
+        
+        //GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }
     
     private void StopSwing()

@@ -19,6 +19,9 @@ public partial class Ball : RigidBody2D
     {
         shadow = GetNodeHelper.GetShadow(GetTree());
         
-        GD.Print($"Ball: {LinearVelocity}");
+        
+        //GlobalPosition = new Vector2(shadow.GlobalPosition.X, GlobalPosition.Y);
+
+        //GD.Print($"Ball: {LinearVelocity}");
     }
 }
