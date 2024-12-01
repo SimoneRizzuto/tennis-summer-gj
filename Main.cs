@@ -10,6 +10,12 @@ public partial class Main : Node2D
     {
         if (Input.IsActionJustPressed(InputMapAction.RespawnBall))
         {
+            var childNode = GetChild(0);
+            if (childNode.Name == "MainMenu")
+            {
+                return;
+            }
+            
             var tree = GetTree();
             
             var oldShadowBall = GetNodeHelper.GetShadow(tree);
@@ -20,7 +26,7 @@ public partial class Main : Node2D
             var newShadowBall = (Node2D)scene;
             newShadowBall.Position = new(403, 393);
             
-            AddChild(newShadowBall);
+            childNode.AddChild(newShadowBall);
         }
     }
 

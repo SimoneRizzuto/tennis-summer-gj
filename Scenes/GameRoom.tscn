@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3kfg73ywy54a" path="res://Scenes/Wall/Wall.tscn" id="4_5kl3b"]
 
 [node name="GameRoom" type="Node2D"]
+y_sort_enabled = true
 
 [node name="BallModule" parent="." instance=ExtResource("1_nqnt0")]
 position = Vector2(403, 393)
