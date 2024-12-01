@@ -33,6 +33,8 @@ public partial class Shadow : RigidBody2D
         }
         
         ProcessBallHeight();
+        
+        GD.Print(LinearVelocity);
     }
 
     private void ProcessBallHeight()

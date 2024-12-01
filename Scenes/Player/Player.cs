@@ -134,51 +134,61 @@ public partial class Player : CharacterBody2D
             case SwingDirection.Up:
                 if (height < 5) // big hit
                 {
-                    ballY = 24000;
-                    shadowY = 10000;
+                    ballY = 30000;
+                    shadowY = 250;
                 }
                 else if (height < 10)
                 {
-                    ballY = 22000;
-                    shadowY = 10000;
+                    ballY = 26500;
+                    shadowY = 250;
                 }
                 else if (height < 20)
                 {
-                    ballY = 18000;
-                    shadowY = 10000;
+                    ballY = 22500;
+                    shadowY = 250;
                 }
                 else if (height < 40)
                 {
-                    ballY = 16000;
-                    shadowY = 10000;
+                    ballY = 20000;
+                    shadowY = 250;
                 }
                 break;
             case SwingDirection.Down:
                 if (height < 20)
                 {
-                    ballY = 15000;
-                    shadowY = 15000;
+                    ballY = 22500;
+                    shadowY = 250;
                 }
                 else if (height < 30)
                 {
-                    ballY = 15000;
-                    shadowY = 17000;
+                    ballY = 22500;
+                    shadowY = 300;
                 }
                 else if (height < 40)
                 {
-                    ballY = 15000;
-                    shadowY = 17000;
+                    ballY = 22500;
+                    shadowY = 400;
                 }
                 else if (height < 50) // big hit
                 {
-                    ballY = 15000;
-                    shadowY = 17000;
+                    ballY = 22500;
+                    shadowY = 500;
                 }
                 break;
         }
+
         
-        ball.ApplyForce(new(0, -ballY));
-        shadow.ApplyForce(new(0, -shadowY));
+        //ball.AddConstantForce(new(0, -ballY));
+        //shadow.AddConstantForce(new(0, -shadowY));
+        
+        //ball.ApplyForce(new(0, -ballY));
+        //shadow.ApplyForce(new(0, -shadowY));
+
+        //ball.ApplyForce(new(0, -ballY));
+        //shadow.LinearVelocity = new(0, -shadowY);
+        
+        ball.LinearVelocity = new(0, -ballY);
+        shadow.LinearVelocity = new(0, -shadowY);
         
         GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }
