@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_3e4ad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr074"]
-size = Vector2(84, 77.5)
+size = Vector2(146, 124.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3wec"]
 size = Vector2(20, 9)
@@ -25,10 +25,10 @@ offset_bottom = -10.0
 color = Color(0, 0, 0, 0.517647)
 
 [node name="SwingShape" type="CollisionShape2D" parent="SwingArea"]
-position = Vector2(0, -48.25)
+position = Vector2(1, -71.75)
 shape = SubResource("RectangleShape2D_lr074")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="PlayerRect" type="ColorRect" parent="."]
 offset_left = -10.0
 offset_top = -40.0
 offset_right = 10.0

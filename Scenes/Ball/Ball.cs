@@ -17,6 +17,11 @@ public partial class Ball : RigidBody2D
         shadow ??= GetNodeHelper.GetShadow(GetTree());
     }
 
+    public override void _Process(double delta)
+    {
+        shadow = GetNodeHelper.GetShadow(GetTree());
+    }
+
     public override void _PhysicsProcess(double delta)
     {
         // DistanceToGround

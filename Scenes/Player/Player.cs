@@ -11,12 +11,17 @@ public partial class Player : CharacterBody2D
     private Ball ball;
     private Shadow shadow;
     private Area2D swingArea;
+    private ColorRect playerRect;
+
+    private SwingDirection swingDirection = 0;
 
     private bool IsSwinging => swingDurationTimer.IsRunning;
     private bool IsReachableHeight
     {
         get
         {
+            shadow = GetNodeHelper.GetShadow(GetTree());
+            
             if (shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Net
                 || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Eye
                 || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Arm)
@@ -33,7 +38,7 @@ public partial class Player : CharacterBody2D
     private float moveSpeed = 10000f;
     
     private readonly Stopwatch swingDurationTimer = new();
-    private int swingDuration = 1000;
+    private int swingDuration = 2000;
 
     public override void _Ready()
     {
@@ -42,6 +47,7 @@ public partial class Player : CharacterBody2D
         ball ??= GetNodeHelper.GetBall(tree);
         shadow ??= GetNodeHelper.GetShadow(tree);
         swingArea ??= GetNode<Area2D>("SwingArea");
+        playerRect ??= GetNode<ColorRect>("PlayerRect");
         
         // signals to subscribe
         swingArea.BodyShapeEntered += OnBodyShapeEntered;
@@ -73,6 +79,15 @@ public partial class Player : CharacterBody2D
         {
             if (isInRange && IsReachableHeight)
             {
+                if (swingDirection == SwingDirection.Down)
+                {
+                    // play animation
+                }
+                else if (swingDirection == SwingDirection.Up)
+                {
+                    // play animation
+                }
+                
                 ApplyForce();
                 StopSwing();
             }
@@ -85,48 +100,89 @@ public partial class Player : CharacterBody2D
         }
         else if (Input.IsActionJustPressed(InputMapAction.SwingDown))
         {
-            GD.Print("Swinging down...");
+            swingDirection = SwingDirection.Down;
             swingDurationTimer.Restart();
+            
+            playerRect.Color = Colors.Red;
         }
         else if (Input.IsActionJustPressed(InputMapAction.SwingUp))
         {
-            GD.Print("Swinging up...");
+            swingDirection = SwingDirection.Up;
             swingDurationTimer.Restart();
+            
+            playerRect.Color = Colors.Blue;
         }
     }
 
     private void ApplyForce()
     {
+        shadow = GetNodeHelper.GetShadow(GetTree());
+        ball = GetNodeHelper.GetBall(GetTree());
+        
         var height = ball.Height;
 
-        int yForce = 0;
+        int ballY = 0;
+        int shadowY = 0;
+
+        switch (swingDirection)
+        {
+            case SwingDirection.Up:
+                if (height < 5) // big hit
+                {
+                    ballY = 24000;
+                    shadowY = 10000;
+                }
+                else if (height < 10)
+                {
+                    ballY = 22000;
+                    shadowY = 10000;
+                }
+                else if (height < 20)
+                {
+                    ballY = 18000;
+                    shadowY = 10000;
+                }
+                else if (height < 40)
+                {
+                    ballY = 16000;
+                    shadowY = 10000;
+                }
+                break;
+            case SwingDirection.Down:
+                if (height < 20)
+                {
+                    ballY = 15000;
+                    shadowY = 15000;
+                }
+                else if (height < 30)
+                {
+                    ballY = 15000;
+                    shadowY = 17000;
+                }
+                else if (height < 40)
+                {
+                    ballY = 15000;
+                    shadowY = 17000;
+                }
+                else if (height < 50) // big hit
+                {
+                    ballY = 15000;
+                    shadowY = 17000;
+                }
+                break;
+        }
         
-        if (height < 20)
-        {
-            yForce = 15 * 1000;
-        }
-        else if (height < 30)
-        {
-            yForce = 17 * 1000;
-        }
-        else if (height < 40)
-        {
-            yForce = 19 * 1000;
-        }
-        else if (height < 50) // big hit, aims down
-        {
-            yForce = 21 * 1000;
-        }
+        ball.ApplyForce(new(0, -ballY));
+        shadow.ApplyForce(new(0, -shadowY));
         
-        ball.ApplyForce(new(0, -yForce/* / 1000*/));
-        shadow.ApplyForce(new(0, -yForce));
+        GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }
     
     private void StopSwing()
     {
-        GD.Print("Swing over...");
-        
         swingDurationTimer.Reset();
+        
+        playerRect.Color = Colors.White;
     }
     
     // signals

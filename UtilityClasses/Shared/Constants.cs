@@ -7,6 +7,7 @@ public static class InputMapAction
     public const string MoveRight = "move right";
     public const string SwingDown = "swing down";
     public const string SwingUp = "swing up";
+    public const string RespawnBall = "respawn ball";
 }
 
 public static class NodeGroup
@@ -24,4 +25,10 @@ public static class HeightLevel
     public const int Eye = 4;
     public const int Arm = 8;
     public const int Sky = 16;
+}
+
+public enum SwingDirection
+{
+    Down = 0,
+    Up = 1,
 }

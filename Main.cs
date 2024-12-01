@@ -1,10 +1,29 @@
 using Godot;
 using System;
 using System.Linq;
+using TennisSummerGJ2024.UtilityClasses.Helpers;
 using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Main : Node2D
 {
+    public override void _Process(double delta)
+    {
+        if (Input.IsActionJustPressed(InputMapAction.RespawnBall))
+        {
+            var tree = GetTree();
+            
+            var oldShadowBall = GetNodeHelper.GetShadow(tree);
+            oldShadowBall.Free();
+            
+            var scene = ResourceLoader.Load<PackedScene>("res://Scenes/Ball/BallModule.tscn").Instantiate();
+
+            var newShadowBall = (Node2D)scene;
+            newShadowBall.Position = new(403, 393);
+            
+            AddChild(newShadowBall);
+        }
+    }
+
     private void SortNodesByGlobalPosition()
     {
         // Get all child nodes of the current node

@@ -42,8 +42,8 @@ shape = SubResource("CircleShape2D_yyq14")
 
 [node name="BallRect" type="ColorRect" parent="Ball"]
 offset_left = -7.0
-offset_top = -15.0
+offset_top = -17.0
 offset_right = 7.0
-offset_bottom = -1.0
+offset_bottom = -3.0
 color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
