@@ -18,7 +18,7 @@ public static class NodeGroup
 public static class HeightLevel
 {
     public const int Shadow = 1;
-    public const int Ground = 2;
+    public const int Net = 2;
     public const int Eye = 4;
     public const int Sky = 8;
 }

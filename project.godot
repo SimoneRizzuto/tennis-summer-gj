@@ -61,6 +61,6 @@ swing={
 [layer_names]
 
 2d_physics/layer_1="shadow level"
-2d_physics/layer_2="ground level"
+2d_physics/layer_2="net level"
 2d_physics/layer_3="eye level"
 2d_physics/layer_4="sky level"

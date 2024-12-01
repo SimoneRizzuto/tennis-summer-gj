@@ -13,7 +13,20 @@ public partial class Player : CharacterBody2D
     private Area2D swingArea;
 
     private bool IsSwinging => swingDurationTimer.IsRunning;
-    private bool IsReachableHeight => shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Ground + HeightLevel.Eye + HeightLevel.Sky;
+    private bool IsReachableHeight
+    {
+        get
+        {
+            if (shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Net
+                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Eye)
+            {
+                return true;
+            }
+            
+            return false;
+        }
+    }
+
     private bool isInRange;
 
     private float moveSpeed = 10000f;
