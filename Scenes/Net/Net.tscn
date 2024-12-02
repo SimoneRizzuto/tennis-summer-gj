@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://p4gwka6eqjmq"]
 
 [ext_resource type="Script" path="res://Scenes/Net/Net.cs" id="1_pkxfg"]
-[ext_resource type="Texture2D" uid="uid://c83h2rgd4o8wx" path="res://Assets/Sprites/net.png" id="2_fsrtn"]
+[ext_resource type="Texture2D" uid="uid://c83h2rgd4o8wx" path="res://Assets/Sprites/Court/net.png" id="2_fsrtn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eoyc1"]
 friction = 0.0

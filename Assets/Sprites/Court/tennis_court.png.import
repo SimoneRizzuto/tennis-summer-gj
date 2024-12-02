@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b77spxxh3211f"
-path="res://.godot/imported/crowds_1.png-78860d967abc8a9ff496043d85ce4b8e.ctex"
+uid="uid://68w2scex2n1j"
+path="res://.godot/imported/tennis_court.png-2ad708e841f3b904429efa1eda89ecc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/crowds_1.png"
-dest_files=["res://.godot/imported/crowds_1.png-78860d967abc8a9ff496043d85ce4b8e.ctex"]
+source_file="res://Assets/Sprites/Court/tennis_court.png"
+dest_files=["res://.godot/imported/tennis_court.png-2ad708e841f3b904429efa1eda89ecc9.ctex"]
 
 [params]
 

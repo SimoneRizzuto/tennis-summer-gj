@@ -146,12 +146,12 @@ public partial class Player : CharacterBody2D
             case SwingDirection.Up:
                 if (height < 5) // big hit
                 {
-                    ballY = 400;
+                    ballY = 500;
                     shadowY = 125;
                 }
                 else if (height < 10)
                 {
-                    ballY = 350;
+                    ballY = 400;
                     shadowY = 125;
                 }
                 else if (height < 20)
@@ -161,7 +161,7 @@ public partial class Player : CharacterBody2D
                 }
                 else if (height < 40)
                 {
-                    ballY = 250;
+                    ballY = 200;
                     shadowY = 125;
                 }
                 break;
