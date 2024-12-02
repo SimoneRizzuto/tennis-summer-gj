@@ -30,7 +30,7 @@ public partial class Main : Node2D
         }
     }
 
-    private void SortNodesByGlobalPosition()
+    /*private void SortNodesByGlobalPosition()
     {
         // Get all child nodes of the current node
         var children = GetChildren();
@@ -48,5 +48,5 @@ public partial class Main : Node2D
             // Reorder nodes by moving them in the scene tree
             node2DChildren[i].GetParent().MoveChild(node2DChildren[i], i);
         }
-    }
+    }*/
 }
