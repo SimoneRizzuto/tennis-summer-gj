@@ -89,3 +89,8 @@ project/assembly_name="Tennis Summer GJ 2024"
 2d_physics/layer_3="eye level"
 2d_physics/layer_4="arm level"
 2d_physics/layer_5="sky level"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/default_filters/anisotropic_filtering_level=0

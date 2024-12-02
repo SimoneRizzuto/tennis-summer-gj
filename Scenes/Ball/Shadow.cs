@@ -10,7 +10,7 @@ public partial class Shadow : RigidBody2D
     private Net net;
     private Player player;
 
-    public float NetHeight => net.NetShape.GetRect().Size.Y;
+    public float NetHeight => net.NetSprite.Texture.GetHeight();
     public int PlayerHeight => 40; // get from player variable
     public int ArmHeight => 60; // get from player variable
     
@@ -35,6 +35,8 @@ public partial class Shadow : RigidBody2D
         ProcessBallHeight();
         
         //GD.Print($"Shadow: {LinearVelocity}");
+        
+        GD.Print(NetHeight);
     }
 
     private void ProcessBallHeight()

@@ -1,22 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqknrg3wfck6f"]
+[gd_scene load_steps=6 format=3 uid="uid://bqknrg3wfck6f"]
 
 [ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="1_nqnt0"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_mjkcp"]
 [ext_resource type="PackedScene" uid="uid://p4gwka6eqjmq" path="res://Scenes/Net/Net.tscn" id="3_7elef"]
 [ext_resource type="PackedScene" uid="uid://d3kfg73ywy54a" path="res://Scenes/Wall/Wall.tscn" id="4_5kl3b"]
+[ext_resource type="Texture2D" uid="uid://68w2scex2n1j" path="res://Assets/Sprites/tennis_court.png" id="5_lnxt0"]
 
 [node name="GameRoom" type="Node2D"]
 y_sort_enabled = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(401, 327)
+zoom = Vector2(3, 3)
+
 [node name="BallModule" parent="." instance=ExtResource("1_nqnt0")]
-position = Vector2(403, 393)
+position = Vector2(401, 362)
 
 [node name="Player" parent="." instance=ExtResource("2_mjkcp")]
-position = Vector2(403, 512)
-
-[node name="Net" parent="." instance=ExtResource("3_7elef")]
-position = Vector2(154, 276)
+position = Vector2(401, 382)
 
 [node name="Wall" parent="." instance=ExtResource("4_5kl3b")]
-position = Vector2(94, 0)
+position = Vector2(45, 99)
 scale = Vector2(1.7289, 0.819236)
+
+[node name="TennisCourt" type="Sprite2D" parent="."]
+position = Vector2(187, 207)
+texture = ExtResource("5_lnxt0")
+centered = false
+
+[node name="Net" parent="TennisCourt" instance=ExtResource("3_7elef")]
+position = Vector2(104, 128)

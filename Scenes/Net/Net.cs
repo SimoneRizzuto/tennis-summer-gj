@@ -3,14 +3,14 @@ using System;
 
 public partial class Net : Node2D
 {
-    public ColorRect NetShape;
+    public Sprite2D NetSprite;
     public override void _Ready()
     {
-        NetShape = GetNode<ColorRect>("ColorRect");
+        NetSprite = GetNode<Sprite2D>("Net");
     }
 
     public override void _Process(double delta)
     {
-        NetShape = GetNode<ColorRect>("ColorRect");
+        NetSprite = GetNode<Sprite2D>("Net");
     }
 }
