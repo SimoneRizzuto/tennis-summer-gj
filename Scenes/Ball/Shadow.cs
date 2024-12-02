@@ -65,7 +65,10 @@ public partial class Shadow : RigidBody2D
     {
         ball = GetNodeHelper.GetBall(GetTree());
 
-        ball.LinearVelocity = new(LinearVelocity.X, ball.LinearVelocity.Y);
+        var x = LinearVelocity.X;
+        var y = ball.LinearVelocity.Y;
+        
+        ball.LinearVelocity = new(x, y);
         
         GD.Print("Collision detected..");
     }
