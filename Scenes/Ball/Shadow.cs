@@ -19,6 +19,8 @@ public partial class Shadow : RigidBody2D
         ball = GetNodeHelper.GetBall(GetTree());
         net = GetNodeHelper.GetNet(GetTree());
         player = GetNodeHelper.GetPlayer(GetTree());
+        
+        BodyEntered += HandlePhysics;
     }
 
     public override void _Process(double delta)
@@ -33,13 +35,13 @@ public partial class Shadow : RigidBody2D
         }
         
         ProcessBallHeight();
-        
+
         //GD.Print($"Shadow: {LinearVelocity}");
     }
 
     private void ProcessBallHeight()
     {
-        GD.Print($"Ball Height: {ball.Height}, Net Height: {NetHeight}");
+        //GD.Print($"Ball Height: {ball.Height}, Net Height: {NetHeight}");
         
         if (ball.Height <= NetHeight - 1)
         {
@@ -57,5 +59,44 @@ public partial class Shadow : RigidBody2D
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Sky;
         }
+    }
+    
+    private void HandlePhysics(Node node)
+    {
+        ball = GetNodeHelper.GetBall(GetTree());
+
+        ball.LinearVelocity = new(LinearVelocity.X, ball.LinearVelocity.Y);
+        
+        GD.Print("Collision detected..");
+    }
+
+    private void ProcessBallXAxis()
+    {
+        /*
+        
+        // Get the current transform
+        var currentTransform = ball.Transform;
+        
+        // Set the X value while preserving the Y value
+        currentTransform.Origin.X = Position.X;
+        
+        // Apply the new transform
+        ball.Transform = currentTransform;*/
+        
+        
+        /*if (Math.Abs(ball.Position.X - Position.X) > 100)
+        {
+            var ballYVelocity = ball.LinearVelocity.Y;
+            ball.LinearVelocity = new Vector2(LinearVelocity.X, ballYVelocity);
+        }*/
+        
+        
+        
+        
+        
+        //var test = ball.Transform.Origin;
+        //ball.Transform = new Transform2D(new(Position.X, 0), new(0, ball.), ball.Transform.Origin);
+        //ball.LinearVelocity = new(LinearVelocity.X, ball.LinearVelocity.Y);
+        //ball.Position = new Vector2(ball.Position.X, ball.Position.Y);
     }
 }
