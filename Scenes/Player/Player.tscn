@@ -6,7 +6,7 @@
 size = Vector2(42, 38.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3wec"]
-size = Vector2(12, 4)
+size = Vector2(16, 11)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 6
@@ -34,5 +34,5 @@ offset_top = -14.0
 offset_right = 4.0
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_w3wec")

@@ -144,19 +144,14 @@ public partial class Player : CharacterBody2D
         switch (swingDirection)
         {
             case SwingDirection.Up:
-                if (height < 5) // big hit
-                {
-                    ballY = 500;
-                    shadowY = 125;
-                }
-                else if (height < 10)
+                if (height < 10) // big hit
                 {
                     ballY = 400;
                     shadowY = 125;
                 }
-                else if (height < 20)
+                else if (height < 30)
                 {
-                    ballY = 300;
+                    ballY = 350;
                     shadowY = 125;
                 }
                 else if (height < 40)
@@ -166,20 +161,20 @@ public partial class Player : CharacterBody2D
                 }
                 break;
             case SwingDirection.Down:
-                if (height < 20)
+                if (height < 15)
                 {
                     ballY = 250;
-                    shadowY = 250;
+                    shadowY = 75;
                 }
                 else if (height < 30)
                 {
                     ballY = 250;
-                    shadowY = 250;
+                    shadowY = 125;
                 }
                 else if (height < 40)
                 {
                     ballY = 250;
-                    shadowY = 250;
+                    shadowY = 175;
                 }
                 else if (height < 50) // big hit
                 {
@@ -230,12 +225,3 @@ public partial class Player : CharacterBody2D
         }
     }
 }
-
-
-
-/*private void LogMovement(Vector2 movementVector)
-{
-    GD.Print($"Movement Vector: {movementVector}");
-    GD.Print($"Movement Vector: {Velocity}");
-    GD.Print("----------------------------------");
-}*/
