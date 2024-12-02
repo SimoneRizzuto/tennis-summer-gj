@@ -193,11 +193,11 @@ public partial class Player : CharacterBody2D
         
         if (lastMovedDirection == Direction.Left)
         {
-            shadowX = -50;
+            shadowX = -100;
         }
         else if (lastMovedDirection == Direction.Right)
         {
-            shadowX = 50;
+            shadowX = 100;
         }
         
         shadow.LinearVelocity = new(shadowX, -shadowY);
