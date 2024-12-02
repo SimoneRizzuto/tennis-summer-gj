@@ -38,13 +38,12 @@ gravity_scale = 0.5
 script = ExtResource("1_yk8th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_yyq14")
 
 [node name="BallRect" type="ColorRect" parent="Ball"]
 offset_left = -3.0
-offset_top = 8.0
+offset_top = -3.0
 offset_right = 3.0
-offset_bottom = 14.0
+offset_bottom = 3.0
 color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true

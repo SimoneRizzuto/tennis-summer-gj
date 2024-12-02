@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0fpqcrk4qess"
-path="res://.godot/imported/net-export.png-b506297dbaab656ee14230fc6d262e35.ctex"
+uid="uid://b77spxxh3211f"
+path="res://.godot/imported/crowds_1.png-78860d967abc8a9ff496043d85ce4b8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/net-export.png"
-dest_files=["res://.godot/imported/net-export.png-b506297dbaab656ee14230fc6d262e35.ctex"]
+source_file="res://Assets/Sprites/crowds_1.png"
+dest_files=["res://.godot/imported/crowds_1.png-78860d967abc8a9ff496043d85ce4b8e.ctex"]
 
 [params]
 

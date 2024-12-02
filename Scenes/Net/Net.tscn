@@ -17,9 +17,9 @@ physics_material_override = SubResource("PhysicsMaterial_eoyc1")
 script = ExtResource("1_pkxfg")
 
 [node name="Net" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
 texture = ExtResource("2_fsrtn")
 centered = false
+offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(110, -2)

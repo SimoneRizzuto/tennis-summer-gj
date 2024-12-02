@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqknrg3wfck6f"]
+[gd_scene load_steps=7 format=3 uid="uid://bqknrg3wfck6f"]
 
 [ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="1_nqnt0"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_mjkcp"]
 [ext_resource type="PackedScene" uid="uid://p4gwka6eqjmq" path="res://Scenes/Net/Net.tscn" id="3_7elef"]
 [ext_resource type="PackedScene" uid="uid://d3kfg73ywy54a" path="res://Scenes/Wall/Wall.tscn" id="4_5kl3b"]
 [ext_resource type="Texture2D" uid="uid://68w2scex2n1j" path="res://Assets/Sprites/tennis_court.png" id="5_lnxt0"]
+[ext_resource type="Texture2D" uid="uid://b77spxxh3211f" path="res://Assets/Sprites/crowds_1.png" id="6_nqrnd"]
 
 [node name="GameRoom" type="Node2D"]
 y_sort_enabled = true
@@ -20,7 +21,7 @@ position = Vector2(401, 362)
 position = Vector2(401, 382)
 
 [node name="Wall" parent="." instance=ExtResource("4_5kl3b")]
-position = Vector2(45, 99)
+position = Vector2(10, 195)
 scale = Vector2(1.7289, 0.819236)
 
 [node name="TennisCourt" type="Sprite2D" parent="."]
@@ -28,5 +29,16 @@ position = Vector2(187, 207)
 texture = ExtResource("5_lnxt0")
 centered = false
 
-[node name="Net" parent="TennisCourt" instance=ExtResource("3_7elef")]
-position = Vector2(104, 128)
+[node name="StadiumWalls" type="StaticBody2D" parent="TennisCourt"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TennisCourt/StadiumWalls"]
+polygon = PackedVector2Array(104, 38, 324, 38, 423, 260, 459, 260, 324, 5, 104, 5, -35, 271, 1, 271)
+
+[node name="Crowds1" type="Sprite2D" parent="TennisCourt"]
+position = Vector2(216, 122)
+texture = ExtResource("6_nqrnd")
+
+[node name="Net" parent="." instance=ExtResource("3_7elef")]
+position = Vector2(291, 336)

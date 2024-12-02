@@ -36,7 +36,7 @@ public partial class Player : CharacterBody2D
 
     private bool isInRange;
 
-    private float moveSpeed = 10000f;
+    private float moveSpeed = 7500f;
     
     private readonly Stopwatch swingDurationTimer = new();
     private int swingDuration = 2000;
@@ -78,7 +78,6 @@ public partial class Player : CharacterBody2D
         var roundedPosition = Position.RoundToNearestValue(0.25f);
         Position = roundedPosition;
         
-        
         lastMovedDirection = Direction.None;
 
         if (movementVector != Vector2.Zero)
@@ -89,8 +88,6 @@ public partial class Player : CharacterBody2D
                 lastMovedDirection = direction;
             }
         }
-        
-        Console.WriteLine(lastMovedDirection);
     }
 
     private void ProcessSwinging(double delta)
@@ -149,45 +146,45 @@ public partial class Player : CharacterBody2D
             case SwingDirection.Up:
                 if (height < 5) // big hit
                 {
-                    ballY = 800;
-                    shadowY = 250;
+                    ballY = 400;
+                    shadowY = 125;
                 }
                 else if (height < 10)
                 {
-                    ballY = 700;
-                    shadowY = 250;
+                    ballY = 350;
+                    shadowY = 125;
                 }
                 else if (height < 20)
                 {
-                    ballY = 600;
-                    shadowY = 250;
+                    ballY = 300;
+                    shadowY = 125;
                 }
                 else if (height < 40)
                 {
-                    ballY = 500;
-                    shadowY = 250;
+                    ballY = 250;
+                    shadowY = 125;
                 }
                 break;
             case SwingDirection.Down:
                 if (height < 20)
                 {
-                    ballY = 500;
-                    shadowY = 500;
+                    ballY = 250;
+                    shadowY = 250;
                 }
                 else if (height < 30)
                 {
-                    ballY = 500;
-                    shadowY = 500;
+                    ballY = 250;
+                    shadowY = 250;
                 }
                 else if (height < 40)
                 {
-                    ballY = 500;
-                    shadowY = 500;
+                    ballY = 250;
+                    shadowY = 250;
                 }
                 else if (height < 50) // big hit
                 {
-                    ballY = 500;
-                    shadowY = 500;
+                    ballY = 250;
+                    shadowY = 250;
                 }
                 break;
         }
@@ -196,11 +193,11 @@ public partial class Player : CharacterBody2D
         
         if (lastMovedDirection == Direction.Left)
         {
-            shadowX = -200;
+            shadowX = -50;
         }
         else if (lastMovedDirection == Direction.Right)
         {
-            shadowX = 200;
+            shadowX = 50;
         }
         
         shadow.LinearVelocity = new(shadowX, -shadowY);

@@ -39,6 +39,8 @@ public partial class Shadow : RigidBody2D
 
     private void ProcessBallHeight()
     {
+        GD.Print($"Ball Height: {ball.Height}, Net Height: {NetHeight}");
+        
         if (ball.Height <= NetHeight - 1)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Net;
