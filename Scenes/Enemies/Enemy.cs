@@ -109,7 +109,7 @@ public partial class Enemy : CharacterBody2D
 
     private void ApplyForces()
     {
-        shadow.LinearVelocity = new(0, 200);
+        shadow.LinearVelocity = new(0, 150);
         ball.LinearVelocity = new(0, 0);
     }
     

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy.cs" id="1_tcwrp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfn4d"]
-size = Vector2(43, 44.25)
+size = Vector2(32, 16.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kn6q"]
 size = Vector2(11, 6)
@@ -25,7 +25,7 @@ offset_bottom = -10.0
 color = Color(0, 0, 0, 0.517647)
 
 [node name="SwingShape" type="CollisionShape2D" parent="SwingArea"]
-position = Vector2(0, 16)
+position = Vector2(0, 1.9375)
 shape = SubResource("RectangleShape2D_bfn4d")
 
 [node name="EnemyRect" type="ColorRect" parent="."]
