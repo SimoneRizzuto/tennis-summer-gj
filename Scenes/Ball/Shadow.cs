@@ -13,6 +13,9 @@ public partial class Shadow : RigidBody2D
     public float NetHeight => net.NetSprite.Texture.GetHeight();
     public int PlayerHeight => 40; // get from player variable
     public int ArmHeight => 60; // get from player variable
+
+    public bool OnPlayerSide => Position.Y < net.Position.Y;
+    public bool LastHitByPlayer = false;
     
     public override void _Ready()
     {
