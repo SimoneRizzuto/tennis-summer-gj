@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using TennisSummerGJ2024.UtilityClasses.Extensions;
 using TennisSummerGJ2024.UtilityClasses.Helpers;
 
@@ -9,8 +10,11 @@ public partial class Enemy : CharacterBody2D
 
     private Ball ball;
     private Shadow shadow;
+    private Area2D swingArea;
+    private ColorRect enemyRect;
 
     private int movementSpeed = 5000;
+    private Stopwatch swingTime = new();
 
     private void FindNodes()
     {
@@ -18,6 +22,10 @@ public partial class Enemy : CharacterBody2D
 
         ball = GetNodeHelper.GetBall(tree);
         shadow = GetNodeHelper.GetShadow(tree);
+        swingArea = GetNode<Area2D>("SwingArea");
+        enemyRect = GetNode<ColorRect>("EnemyRect");
+
+        swingArea.BodyShapeEntered += OnSwingAreaBodyShapeEntered;
     }
     
     public override void _Ready()
@@ -72,7 +80,27 @@ public partial class Enemy : CharacterBody2D
 
     private void ProcessSwinging()
     {
-        
+        if (swingTime.ElapsedMilliseconds > 1500)
+        {
+            swingTime.Reset();
+            enemyState = EnemyState.Waiting;
+            enemyRect.Color = Colors.Orange;
+        }
+    }
+    
+    // signals
+    private void OnSwingAreaBodyShapeEntered(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex)
+    {
+        if (body is not Shadow) return;
+
+        if (enemyState != EnemyState.Swinging)
+        {
+            swingTime.Restart();
+            
+            enemyState = EnemyState.Swinging;
+            Velocity = Vector2.Zero;
+            enemyRect.Color = Colors.Red;
+        }
     }
 }
 
