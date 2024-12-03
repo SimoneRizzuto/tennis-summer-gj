@@ -16,7 +16,10 @@ public partial class Shadow : RigidBody2D
 
     public bool OnPlayerSide => Position.Y < net.Position.Y;
     public bool LastHitByPlayer = false;
-    
+    public bool IsReachableHeight => CollisionMask == HeightLevel.Shadow + HeightLevel.Net
+                                     || CollisionMask == HeightLevel.Shadow + HeightLevel.Eye
+                                     || CollisionMask == HeightLevel.Shadow + HeightLevel.Arm;
+
     public override void _Ready()
     {
         ball = GetNodeHelper.GetBall(GetTree());

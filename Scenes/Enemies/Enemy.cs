@@ -14,7 +14,7 @@ public partial class Enemy : CharacterBody2D
     private ColorRect enemyRect;
 
     private int movementSpeed = 5000;
-    private Stopwatch swingTime = new();
+    private Stopwatch swingDurationTimer = new();
 
     private void FindNodes()
     {
@@ -24,13 +24,13 @@ public partial class Enemy : CharacterBody2D
         shadow = GetNodeHelper.GetShadow(tree);
         swingArea = GetNode<Area2D>("SwingArea");
         enemyRect = GetNode<ColorRect>("EnemyRect");
-
-        swingArea.BodyShapeEntered += OnSwingAreaBodyShapeEntered;
     }
     
     public override void _Ready()
     {
         FindNodes();
+        
+        swingArea.BodyShapeEntered += OnSwingAreaBodyShapeEntered;
     }
     
     public override void _Process(double delta)
@@ -80,11 +80,9 @@ public partial class Enemy : CharacterBody2D
 
     private void ProcessSwinging()
     {
-        if (swingTime.ElapsedMilliseconds > 1500)
+        if (swingDurationTimer.ElapsedMilliseconds > 1500)
         {
-            swingTime.Reset();
-            enemyState = EnemyState.Waiting;
-            enemyRect.Color = Colors.Orange;
+            StopSwing();
         }
     }
     
@@ -95,12 +93,32 @@ public partial class Enemy : CharacterBody2D
 
         if (enemyState != EnemyState.Swinging)
         {
-            swingTime.Restart();
+            swingDurationTimer.Restart();
             
             enemyState = EnemyState.Swinging;
             Velocity = Vector2.Zero;
             enemyRect.Color = Colors.Red;
+
+            if (shadow.IsReachableHeight)
+            {
+                ApplyForces();
+                StopSwing();
+            }
         }
+    }
+
+    private void ApplyForces()
+    {
+        shadow.LinearVelocity = new(0, 200);
+        ball.LinearVelocity = new(0, 0);
+    }
+    
+    private void StopSwing()
+    {
+        swingDurationTimer.Reset();
+        
+        enemyState = EnemyState.Waiting;
+        enemyRect.Color = Colors.Orange;
     }
 }
 

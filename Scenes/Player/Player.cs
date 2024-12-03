@@ -17,22 +17,6 @@ public partial class Player : CharacterBody2D
     private Direction lastMovedDirection = Direction.None;
 
     private bool IsSwinging => swingDurationTimer.IsRunning;
-    private bool IsReachableHeight
-    {
-        get
-        {
-            shadow = GetNodeHelper.GetShadow(GetTree());
-            
-            if (shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Net
-                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Eye
-                || shadow.CollisionMask == HeightLevel.Shadow + HeightLevel.Arm)
-            {
-                return true;
-            }
-            
-            return false;
-        }
-    }
 
     private bool isInRange;
 
@@ -94,7 +78,7 @@ public partial class Player : CharacterBody2D
     {
         if (IsSwinging)
         {
-            if (isInRange && IsReachableHeight)
+            if (isInRange && shadow.IsReachableHeight)
             {
                 if (swingDirection == SwingDirection.Down)
                 {
