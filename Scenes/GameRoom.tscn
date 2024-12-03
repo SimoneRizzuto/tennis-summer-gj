@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqknrg3wfck6f"]
+[gd_scene load_steps=9 format=3 uid="uid://bqknrg3wfck6f"]
 
 [ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="1_nqnt0"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_mjkcp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PhysicsMaterial" uid="uid://bauf00tw7aa4d" path="res://Scenes/Wall/WallMaterial.tres" id="4_gjy4a"]
 [ext_resource type="Texture2D" uid="uid://68w2scex2n1j" path="res://Assets/Sprites/Court/tennis_court.png" id="5_lnxt0"]
 [ext_resource type="Texture2D" uid="uid://b77spxxh3211f" path="res://Assets/Sprites/Court/crowds_1.png" id="6_nqrnd"]
+[ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="7_ik5ys"]
 
 [node name="GameRoom" type="Node2D"]
 y_sort_enabled = true
@@ -14,34 +15,43 @@ y_sort_enabled = true
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(401, 327)
 zoom = Vector2(3, 3)
+metadata/_edit_lock_ = true
 
-[node name="BallModule" parent="." instance=ExtResource("1_nqnt0")]
-position = Vector2(401, 362)
-
-[node name="Player" parent="." instance=ExtResource("2_mjkcp")]
-position = Vector2(401, 382)
-
-[node name="Wall" parent="." instance=ExtResource("4_5kl3b")]
-position = Vector2(10, 195)
-scale = Vector2(1.7289, 0.819236)
-physics_material_override = ExtResource("4_gjy4a")
+[node name="Net" parent="." instance=ExtResource("3_7elef")]
+position = Vector2(291, 336)
+metadata/_edit_lock_ = true
 
 [node name="TennisCourt" type="Sprite2D" parent="."]
 position = Vector2(187, 207)
 texture = ExtResource("5_lnxt0")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="StadiumWalls" type="StaticBody2D" parent="TennisCourt"]
 collision_layer = 30
 collision_mask = 30
 physics_material_override = ExtResource("4_gjy4a")
+metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TennisCourt/StadiumWalls"]
 polygon = PackedVector2Array(104, 38, 324, 38, 423, 260, 459, 260, 324, 5, 104, 5, -35, 271, 1, 271)
+metadata/_edit_lock_ = true
 
 [node name="Crowds1" type="Sprite2D" parent="TennisCourt"]
 position = Vector2(216, 122)
 texture = ExtResource("6_nqrnd")
+metadata/_edit_lock_ = true
 
-[node name="Net" parent="." instance=ExtResource("3_7elef")]
-position = Vector2(291, 336)
+[node name="BallModule" parent="." instance=ExtResource("1_nqnt0")]
+position = Vector2(401, 380)
+
+[node name="Player" parent="." instance=ExtResource("2_mjkcp")]
+position = Vector2(399, 415)
+
+[node name="Enemy" parent="." instance=ExtResource("7_ik5ys")]
+position = Vector2(404, 301)
+
+[node name="Wall" parent="." instance=ExtResource("4_5kl3b")]
+position = Vector2(10, 195)
+scale = Vector2(1.7289, 0.819236)
+physics_material_override = ExtResource("4_gjy4a")
