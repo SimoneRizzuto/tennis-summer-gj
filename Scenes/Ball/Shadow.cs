@@ -15,7 +15,7 @@ public partial class Shadow : RigidBody2D
     public int ArmHeight => 60; // get from player variable
     public bool IsReachableHeight => CollisionMask == HeightLevel.Shadow + HeightLevel.Net || CollisionMask == HeightLevel.Shadow + HeightLevel.Eye || CollisionMask == HeightLevel.Shadow + HeightLevel.Arm;
 
-    public bool OnPlayerSide => Position.Y < net.Position.Y;
+    public bool OnPlayerSide => Position.Y > net.Position.Y;
     public bool LastHitByPlayer = false;
     public bool BouncedOnce = false;
     

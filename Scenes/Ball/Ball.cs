@@ -31,7 +31,17 @@ public partial class Ball : RigidBody2D
     {
         if (body is Shadow shadowNode)
         {
-            shadowNode.BouncedOnce = true;
+            if (shadowNode.BouncedOnce)
+            {
+                var scoreManager = GetNodeHelper.GetScoreManager(GetTree());
+                if (scoreManager.ScoreHasBeenTallied) return;
+                
+                scoreManager.RoundWin();
+            }
+            else
+            {
+                shadowNode.BouncedOnce = true;
+            }
         }
     }
 }
