@@ -4,11 +4,12 @@ using static Godot.DisplayServer;
 
 public partial class MainMenu : Control
 {
+    private const string MainGamePath = "res://Scenes/GameRoom.tscn";
+    private const string VsScreenPath = "res://Scenes/VsScreen/VsScreen.tscn";
+    
     private Button beginButton;
     private Button fullscreenButton;
     private Button creditsButton;
-    
-    private string mainGamePath = "res://Scenes/GameRoom.tscn";
     
     public override void _Ready()
     {
@@ -25,7 +26,10 @@ public partial class MainMenu : Control
     
     private void BeginIsPressed()
     {
-        var scene = ResourceLoader.Load<PackedScene>(mainGamePath).Instantiate();
+        var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
+        var vsScreen = (VsScreen)scene;
+        
+        vsScreen.OpponentName.Text = "The Tent...?";
         
         GetParent().AddChild(scene);
         QueueFree();
