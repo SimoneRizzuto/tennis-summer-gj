@@ -53,4 +53,16 @@ public static class GetNodeHelper
         
         return net;
     }
+    
+    public static ScoreManager GetScoreManager(SceneTree tree)
+    {
+        var scoreManagerNodes = tree.GetNodesInGroup(NodeGroup.ScoreManager);
+        var scoreManager = scoreManagerNodes.Cast<ScoreManager>().FirstOrDefault();
+        if (scoreManager == null)
+        {
+            GD.PrintErr($"{nameof(scoreManager)} was null.");
+        }
+        
+        return scoreManager;
+    }
 }
