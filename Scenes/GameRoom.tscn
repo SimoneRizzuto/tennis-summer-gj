@@ -14,6 +14,12 @@
 [node name="GameRoom" type="Node2D"]
 y_sort_enabled = true
 
+[node name="ScoreDisplay" parent="." instance=ExtResource("10_gulyr")]
+offset_left = 381.0
+offset_top = 220.0
+offset_right = 441.0
+offset_bottom = 241.0
+
 [node name="ScoreManager" parent="." instance=ExtResource("1_tpldh")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -59,9 +65,3 @@ position = Vector2(401, 273)
 position = Vector2(10, 195)
 scale = Vector2(1.7289, 0.819236)
 physics_material_override = ExtResource("4_gjy4a")
-
-[node name="ScoreDisplay" parent="." instance=ExtResource("10_gulyr")]
-offset_left = 381.0
-offset_top = 220.0
-offset_right = 441.0
-offset_bottom = 241.0

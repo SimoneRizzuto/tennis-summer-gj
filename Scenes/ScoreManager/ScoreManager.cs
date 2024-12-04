@@ -69,29 +69,33 @@ public partial class ScoreManager : Node2D
 
     private void IncrementScore(Person person)
     {
-        int calculatedScore;
-        
-        if (person == Person.Player)
+        switch (person)
         {
-            if (opponentScore == 4)
+            case Person.Player:
             {
-                opponentScore--;
+                if (opponentScore == 4)
+                {
+                    opponentScore--;
+                }
+                else
+                {
+                    playerScore++;
+                }
+
+                break;
             }
-            else
+            case Person.Opponent:
             {
-                playerScore++;
-            }
-        }
-        else if (person == Person.Opponent)
-        {
-            
-            if (playerScore == 4)
-            {
-                playerScore--;
-            }
-            else
-            {
-                opponentScore++;
+                if (playerScore == 4)
+                {
+                    playerScore--;
+                }
+                else
+                {
+                    opponentScore++;
+                }
+
+                break;
             }
         }
     }
