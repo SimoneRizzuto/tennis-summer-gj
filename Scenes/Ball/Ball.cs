@@ -5,22 +5,20 @@ using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Ball : RigidBody2D
 {
-    public float Height => GlobalPosition.DistanceTo(shadow.GlobalPosition);
+    public float Height => GlobalPosition.DistanceTo(Shadow.GlobalPosition);
     
     private double heightDropSpeed = 2;
-    private Shadow shadow;
+    private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     
     public override void _Ready()
     {
-        shadow ??= GetNodeHelper.GetShadow(GetTree());
+        GD.Print("ball spawned...");
         
         BodyShapeEntered += OnBodyShapeEntered;
     }
 
     public override void _Process(double delta)
     {
-        shadow = GetNodeHelper.GetShadow(GetTree());
-        
         //GlobalPosition = new Vector2(shadow.GlobalPosition.X, GlobalPosition.Y);
 
         //GD.Print($"Ball: {LinearVelocity}");

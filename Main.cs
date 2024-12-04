@@ -16,17 +16,7 @@ public partial class Main : Node2D
                 return;
             }
             
-            var tree = GetTree();
-            
-            var oldShadowBall = GetNodeHelper.GetShadow(tree);
-            oldShadowBall.Free();
-            
-            var scene = ResourceLoader.Load<PackedScene>("res://Scenes/Ball/BallModule.tscn").Instantiate();
-
-            var newShadowBall = (Node2D)scene;
-            newShadowBall.Position = new(403, 393);
-            
-            childNode.AddChild(newShadowBall);
+            Shadow.RespawnBall(GetTree());
         }
     }
 

@@ -8,8 +8,8 @@ public partial class Enemy : CharacterBody2D
 {
     private EnemyState enemyState = 0;
 
-    private Ball ball;
-    private Shadow shadow;
+    private Ball Ball => GetNodeHelper.GetBall(GetTree());
+    private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     private Area2D swingArea;
     private ColorRect enemyRect;
 
@@ -20,8 +20,6 @@ public partial class Enemy : CharacterBody2D
     {
         var tree = GetTree();
 
-        ball = GetNodeHelper.GetBall(tree);
-        shadow = GetNodeHelper.GetShadow(tree);
         swingArea = GetNode<Area2D>("SwingArea");
         enemyRect = GetNode<ColorRect>("EnemyRect");
     }
@@ -60,7 +58,7 @@ public partial class Enemy : CharacterBody2D
     {
         // if not on the back of the court, go there
         
-        if (shadow.LastHitByPlayer)
+        if (Shadow.PlayerBall)
         {
             enemyState = EnemyState.Repositioning;
         }
@@ -68,13 +66,13 @@ public partial class Enemy : CharacterBody2D
 
     private void ProcessRepositioning(double delta)
     {
-        if (Math.Abs(Position.X - shadow.Position.X) < 10)
+        if (Math.Abs(Position.X - Shadow.Position.X) < 10)
         {
             Velocity = Vector2.Zero;
             return;
         }
         
-        var directionToBall = Position.DirectionTo(new (shadow.Position.X, Position.Y));
+        var directionToBall = Position.DirectionTo(new (Shadow.Position.X, Position.Y));
         Velocity = directionToBall * movementSpeed * (float)delta;
     }
 
@@ -89,7 +87,7 @@ public partial class Enemy : CharacterBody2D
     // signals
     private void OnSwingAreaBodyShapeEntered(Rid bodyRid, Node2D body, long bodyShapeIndex, long localShapeIndex)
     {
-        if (body is not Shadow) return;
+        if (body is not global::Shadow) return;
 
         if (enemyState != EnemyState.Swinging)
         {
@@ -99,11 +97,11 @@ public partial class Enemy : CharacterBody2D
             Velocity = Vector2.Zero;
             enemyRect.Color = Colors.Red;
 
-            if (shadow.IsReachableHeight)
+            if (Shadow.IsReachableHeight)
             {
                 ApplyForces();
                 
-                shadow.BouncedOnce = false;
+                Shadow.BouncedOnce = false;
                 
                 StopSwing();
             }
@@ -112,8 +110,8 @@ public partial class Enemy : CharacterBody2D
 
     private void ApplyForces()
     {
-        shadow.LinearVelocity = new(0, 150);
-        ball.LinearVelocity = new(0, 0);
+        Shadow.LinearVelocity = new(0, 150);
+        Ball.LinearVelocity = new(0, 0);
     }
     
     private void StopSwing()

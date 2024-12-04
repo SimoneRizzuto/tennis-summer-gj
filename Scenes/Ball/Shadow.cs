@@ -6,33 +6,23 @@ using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class Shadow : RigidBody2D
 {
-    private Ball ball;
-    private Net net;
-    private Player player;
+    private Ball Ball => GetNodeHelper.GetBall(GetTree());
+    private Net Net => GetNodeHelper.GetNet(GetTree());
+    private Player Player => GetNodeHelper.GetPlayer(GetTree());
 
-    public float NetHeight => net.NetSprite.Texture.GetHeight();
+    public float NetHeight => Net.GetNode<Sprite2D>("Net").Texture.GetHeight();
     public int PlayerHeight => 40; // get from player variable
     public int ArmHeight => 60; // get from player variable
     public bool IsReachableHeight => CollisionMask == HeightLevel.Shadow + HeightLevel.Net || CollisionMask == HeightLevel.Shadow + HeightLevel.Eye || CollisionMask == HeightLevel.Shadow + HeightLevel.Arm;
 
-    public bool OnPlayerSide => Position.Y > net.Position.Y;
-    public bool LastHitByPlayer = false;
+    public bool OnPlayerSide => Position.Y > GetNodeHelper.GetNet(GetTree())?.Position.Y;
+    public bool PlayerBall = false; // is the player's ball
     public bool BouncedOnce = false;
     
-    public override void _Ready()
-    {
-        ball = GetNodeHelper.GetBall(GetTree());
-        net = GetNodeHelper.GetNet(GetTree());
-        player = GetNodeHelper.GetPlayer(GetTree());
-    }
-
     public override void _PhysicsProcess(double delta)
     {
-        ball = GetNodeHelper.GetBall(GetTree());
-        net = GetNodeHelper.GetNet(GetTree());
-        player = GetNodeHelper.GetPlayer(GetTree());
         
-        if (ball == null || net == null || player == null)
+        if (Ball == null || Net == null || Player == null)
         {
             return;
         }
@@ -45,15 +35,15 @@ public partial class Shadow : RigidBody2D
     {
         //GD.Print($"Ball Height: {ball.Height}, Net Height: {NetHeight}");
         
-        if (ball.Height <= NetHeight - 1)
+        if (Ball.Height <= NetHeight - 1)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Net;
         }
-        else if (ball.Height <= PlayerHeight)
+        else if (Ball.Height <= PlayerHeight)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Eye;
         }
-        else if (ball.Height <= ArmHeight)
+        else if (Ball.Height <= ArmHeight)
         {
             CollisionMask = HeightLevel.Shadow + HeightLevel.Arm;
         }
@@ -66,8 +56,21 @@ public partial class Shadow : RigidBody2D
     private void CorrectBallXToShadow()
     {
         var x = LinearVelocity.X;
-        var y = ball.LinearVelocity.Y;
+        var y = Ball.LinearVelocity.Y;
         
-        ball.LinearVelocity = new(x, y);
+        Ball.LinearVelocity = new(x, y);
+    }
+    
+    public static void RespawnBall(SceneTree tree)
+    {
+        var oldShadowBall = GetNodeHelper.GetShadow(tree);
+        oldShadowBall.QueueFree();
+            
+        var scene = ResourceLoader.Load<PackedScene>("res://Scenes/Ball/BallModule.tscn").Instantiate();
+
+        var newShadowBall = (Node2D)scene;
+        newShadowBall.Position = new(403, 393);
+        
+        tree.CurrentScene.AddChild(newShadowBall);
     }
 }

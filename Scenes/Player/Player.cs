@@ -8,10 +8,10 @@ using TennisSummerGJ2024.UtilityClasses.Shared;
 namespace TennisSummerGJ2024.Scenes.Player;
 public partial class Player : CharacterBody2D
 {
-    private Ball ball;
-    private Shadow shadow;
-    private Area2D swingArea;
-    private ColorRect playerRect;
+    private Ball Ball => GetNodeHelper.GetBall(GetTree());
+    private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
+    private Area2D SwingArea => GetNode<Area2D>("SwingArea");
+    private ColorRect PlayerRect => GetNode<ColorRect>("PlayerRect");
 
     private SwingDirection swingDirection = 0;
     private Direction lastMovedDirection = Direction.None;
@@ -27,25 +27,13 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
-        var tree = GetTree();
-        
-        ball ??= GetNodeHelper.GetBall(tree);
-        shadow ??= GetNodeHelper.GetShadow(tree);
-        swingArea ??= GetNode<Area2D>("SwingArea");
-        playerRect ??= GetNode<ColorRect>("PlayerRect");
-        
         // signals to subscribe
-        swingArea.BodyShapeEntered += OnBodyShapeEntered;
-        swingArea.BodyShapeExited += OnBodyShapeExited;
+        SwingArea.BodyShapeEntered += OnBodyShapeEntered;
+        SwingArea.BodyShapeExited += OnBodyShapeExited;
     }
     
     public override void _PhysicsProcess(double delta)
     {
-        ball = GetNodeHelper.GetBall(GetTree());
-        shadow = GetNodeHelper.GetShadow(GetTree());
-        swingArea = GetNode<Area2D>("SwingArea");
-        playerRect = GetNode<ColorRect>("PlayerRect");
-        
         ProcessMovement(delta);
 
         ProcessSwinging(delta);
@@ -78,7 +66,7 @@ public partial class Player : CharacterBody2D
     {
         if (IsSwinging)
         {
-            if (isInRange && shadow.IsReachableHeight)
+            if (isInRange && Shadow.IsReachableHeight)
             {
                 if (swingDirection == SwingDirection.Down)
                 {
@@ -104,23 +92,20 @@ public partial class Player : CharacterBody2D
             swingDirection = SwingDirection.Down;
             swingDurationTimer.Restart();
             
-            playerRect.Color = Colors.Red;
+            PlayerRect.Color = Colors.Red;
         }
         else if (Input.IsActionJustPressed(InputMapAction.SwingUp))
         {
             swingDirection = SwingDirection.Up;
             swingDurationTimer.Restart();
             
-            playerRect.Color = Colors.Blue;
+            PlayerRect.Color = Colors.Blue;
         }
     }
 
     private void ApplyForce()
     {
-        shadow = GetNodeHelper.GetShadow(GetTree());
-        ball = GetNodeHelper.GetBall(GetTree());
-        
-        var height = ball.Height;
+        var height = Ball.Height;
 
         int ballY = 0;
         int shadowY = 0;
@@ -179,11 +164,11 @@ public partial class Player : CharacterBody2D
             shadowX = 100;
         }
         
-        shadow.LinearVelocity = new(shadowX, -shadowY);
-        ball.LinearVelocity = new(shadowX, -ballY);
+        Shadow.LinearVelocity = new(shadowX, -shadowY);
+        Ball.LinearVelocity = new(shadowX, -ballY);
 
-        shadow.LastHitByPlayer = true;
-        shadow.BouncedOnce = false;
+        Shadow.PlayerBall = true;
+        Shadow.BouncedOnce = false;
 
         //GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }
@@ -192,7 +177,7 @@ public partial class Player : CharacterBody2D
     {
         swingDurationTimer.Reset();
         
-        playerRect.Color = Colors.White;
+        PlayerRect.Color = Colors.White;
     }
     
     // signals

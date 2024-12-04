@@ -1,47 +1,61 @@
 using Godot;
 using System;
+using System.ComponentModel.Design.Serialization;
 using TennisSummerGJ2024.UtilityClasses.Helpers;
 
 public partial class ScoreManager : Node2D
 {
     public bool ScoreHasBeenTallied;
     
-    private Ball ball;
-    private Shadow shadow;
+    private Ball Ball => GetNodeHelper.GetBall(GetTree());
+    private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
 
     private int playerScore = 0;
     private int opponentScore = 0;
-    
-    public override void _Ready()
+
+    public override void _Process(double delta)
     {
-        FetchNodes();
+        if (ScoreHasBeenTallied)
+        {
+            RespawnBall();
+        }
     }
-    
-    private void FetchNodes()
-    {
-        ball = GetNodeHelper.GetBall(GetTree());
-        shadow = GetNodeHelper.GetShadow(GetTree());
-    }
-    
+
     public void RoundWin()
     {
-        if (shadow.OnPlayerSide)
+        if (ScoreHasBeenTallied) return;
+        
+        if (Shadow.PlayerBall)
         {
-            if (shadow.BouncedOnce && shadow.LastHitByPlayer)
+            if (Shadow.OnPlayerSide)
+            {
+                opponentScore += 15;
+            }
+            else
             {
                 playerScore += 15;
             }
         }
-        else
+        else // Opponent's ball
         {
-            if (shadow.BouncedOnce && !shadow.LastHitByPlayer)
+            if (Shadow.OnPlayerSide)
             {
                 opponentScore += 15;
+            }
+            else
+            {
+                playerScore += 15;
             }
         }
         
         GD.Print($"Player: {playerScore}, Opponent: {opponentScore}");
 
         ScoreHasBeenTallied = true;
+    }
+
+    private void RespawnBall()
+    {
+        Shadow.RespawnBall(GetTree());
+        ScoreHasBeenTallied = false;
     }
 }
