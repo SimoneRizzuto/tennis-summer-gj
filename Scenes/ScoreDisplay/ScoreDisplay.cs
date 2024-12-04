@@ -14,7 +14,5 @@ public partial class ScoreDisplay : Control
 
         PlayerScore.Text = scoreManager.PlayerDisplayScore;
         EnemyScore.Text = scoreManager.OpponentDisplayScore;
-
-        //Text = displayText;
     }
 }
