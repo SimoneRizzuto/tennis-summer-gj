@@ -5,6 +5,8 @@ using TennisSummerGJ2024.UtilityClasses.Helpers;
 
 public partial class ScoreManager : Node2D
 {
+    public string PlayerDisplayScore => DisplayScore(playerScore);
+    public string OpponentDisplayScore => DisplayScore(opponentScore);
     public bool ScoreHasBeenTallied;
     
     private Ball Ball => GetNodeHelper.GetBall(GetTree());
@@ -12,10 +14,7 @@ public partial class ScoreManager : Node2D
 
     private int playerScore = 0;
     private int opponentScore = 0;
-
-    private string PlayerDisplayScore => DisplayScore(playerScore);
-    private string OpponentDisplayScore => DisplayScore(opponentScore);
-
+    
     public override void _Process(double delta)
     {
         if (playerScore == 5)
