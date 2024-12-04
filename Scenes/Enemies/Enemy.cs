@@ -102,6 +102,9 @@ public partial class Enemy : CharacterBody2D
             if (shadow.IsReachableHeight)
             {
                 ApplyForces();
+                
+                shadow.BouncedOnce = false;
+                
                 StopSwing();
             }
         }

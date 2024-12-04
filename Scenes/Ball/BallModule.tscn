@@ -38,6 +38,8 @@ position = Vector2(0, -64)
 collision_layer = 0
 physics_material_override = SubResource("PhysicsMaterial_fx7oe")
 gravity_scale = 0.5
+max_contacts_reported = 50
+contact_monitor = true
 script = ExtResource("1_yk8th")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]

@@ -13,6 +13,8 @@ public partial class Ball : RigidBody2D
     public override void _Ready()
     {
         shadow ??= GetNodeHelper.GetShadow(GetTree());
+        
+        BodyShapeEntered += OnBodyShapeEntered;
     }
 
     public override void _Process(double delta)
@@ -22,5 +24,14 @@ public partial class Ball : RigidBody2D
         //GlobalPosition = new Vector2(shadow.GlobalPosition.X, GlobalPosition.Y);
 
         //GD.Print($"Ball: {LinearVelocity}");
+    }
+    
+    // signals
+    private void OnBodyShapeEntered(Rid bodyRid, Node body, long bodyShapeIndex, long localShapeIndex)
+    {
+        if (body is Shadow shadowNode)
+        {
+            shadowNode.BouncedOnce = true;
+        }
     }
 }

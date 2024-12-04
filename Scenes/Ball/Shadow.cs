@@ -13,13 +13,12 @@ public partial class Shadow : RigidBody2D
     public float NetHeight => net.NetSprite.Texture.GetHeight();
     public int PlayerHeight => 40; // get from player variable
     public int ArmHeight => 60; // get from player variable
+    public bool IsReachableHeight => CollisionMask == HeightLevel.Shadow + HeightLevel.Net || CollisionMask == HeightLevel.Shadow + HeightLevel.Eye || CollisionMask == HeightLevel.Shadow + HeightLevel.Arm;
 
     public bool OnPlayerSide => Position.Y < net.Position.Y;
     public bool LastHitByPlayer = false;
-    public bool IsReachableHeight => CollisionMask == HeightLevel.Shadow + HeightLevel.Net
-                                     || CollisionMask == HeightLevel.Shadow + HeightLevel.Eye
-                                     || CollisionMask == HeightLevel.Shadow + HeightLevel.Arm;
-
+    public bool BouncedOnce = false;
+    
     public override void _Ready()
     {
         ball = GetNodeHelper.GetBall(GetTree());

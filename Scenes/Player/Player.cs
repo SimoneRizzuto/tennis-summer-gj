@@ -183,6 +183,7 @@ public partial class Player : CharacterBody2D
         ball.LinearVelocity = new(shadowX, -ballY);
 
         shadow.LastHitByPlayer = true;
+        shadow.BouncedOnce = false;
 
         //GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }
