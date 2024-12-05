@@ -8,6 +8,7 @@ public static class InputMapAction
     public const string SwingDown = "swing down";
     public const string SwingUp = "swing up";
     public const string RespawnBall = "respawn ball";
+    public const string Interact = "interact";
 }
 
 public static class NodeGroup
