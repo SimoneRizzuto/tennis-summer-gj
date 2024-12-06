@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ph74mvrqe857" path="res://Assets/Sprites/AGENT10 Spritesheet.png" id="4_e35l0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3wxo"]
-size = Vector2(33.5, 54.5625)
+size = Vector2(34.5, 29.5625)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ui1e1"]
 atlas = ExtResource("4_e35l0")
@@ -59,7 +59,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"swing",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -77,10 +77,10 @@ animations = [{
 script = ExtResource("2_04f12")
 
 [node name="SwingShape" parent="SwingArea" index="1"]
-position = Vector2(0.25, 21.7188)
+position = Vector2(0.75, 9.21877)
 shape = SubResource("RectangleShape2D_y3wxo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(3, -18)
 sprite_frames = SubResource("SpriteFrames_pdb0u")
-animation = &"walk"
+animation = &"idle"

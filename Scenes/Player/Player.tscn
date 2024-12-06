@@ -65,7 +65,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"swing",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -106,6 +106,4 @@ shape = SubResource("RectangleShape2D_w3wec")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -16)
 sprite_frames = SubResource("SpriteFrames_eoxt3")
-animation = &"swing"
-frame = 2
-frame_progress = 1.0
+animation = &"idle"

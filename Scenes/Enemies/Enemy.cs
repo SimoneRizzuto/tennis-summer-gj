@@ -73,9 +73,9 @@ public partial class Enemy : CharacterBody2D
 
     private void ProcessWaiting()
     {
-        // if not on the back of the court, go there
-
-        if (Name != "TentOpponent")
+        if (Name == "TentOpponent") return;
+        
+        if (Animation.Animation != "swing" || (Animation.Animation == "swing" && Animation.Frame == 3))
         {
             Animation.Play("idle");
         }
@@ -93,7 +93,7 @@ public partial class Enemy : CharacterBody2D
         if (Math.Abs(Position.X - Shadow.Position.X) < 10)
         {
             Velocity = Vector2.Zero;
-            if (Animation.Animation != "swing")
+            if (Animation.Animation != "swing" || (Animation.Animation == "swing" && Animation.Frame == 3))
             {
                 Animation.Play("idle");
             }
@@ -103,7 +103,7 @@ public partial class Enemy : CharacterBody2D
         var directionToBall = Position.DirectionTo(new (Shadow.Position.X, Position.Y));
         Velocity = directionToBall * movementSpeed * (float)delta;
 
-        if (Animation.Animation != "swing")
+        if (Animation.Animation != "swing" || (Animation.Animation == "swing" && Animation.Frame == 3))
         {
             Animation.Play("walk");
         }

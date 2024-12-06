@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"swing",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,4 +84,4 @@ script = ExtResource("2_yefc6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
 position = Vector2(7, -6)
 sprite_frames = SubResource("SpriteFrames_it542")
-animation = &"swing"
+animation = &"idle"
