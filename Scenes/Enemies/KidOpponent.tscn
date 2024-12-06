@@ -1,7 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwfe401akeiv7"]
+[gd_scene load_steps=11 format=3 uid="uid://cwfe401akeiv7"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_q2iuw"]
 [ext_resource type="Script" path="res://Scenes/Enemies/KidOpponent.cs" id="2_fehou"]
+[ext_resource type="Texture2D" uid="uid://dn18q3ghexk0i" path="res://Assets/Sprites/KID Spritesheet.png" id="3_7ofr4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka7ao"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(0, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6wte"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(83, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je1qn"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(0, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0dcv"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(83, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxwun"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(0, 33, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np8yh"]
+atlas = ExtResource("3_7ofr4")
+region = Rect2(83, 33, 83, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3vpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6wte")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je1qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0dcv")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxwun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np8yh")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="KidOpponent" instance=ExtResource("1_q2iuw")]
 script = ExtResource("2_fehou")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(7, -6)
+sprite_frames = SubResource("SpriteFrames_i3vpo")
+animation = &"swing"

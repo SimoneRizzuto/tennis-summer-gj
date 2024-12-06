@@ -11,6 +11,7 @@ public partial class Enemy : CharacterBody2D
     private Ball Ball => GetNodeHelper.GetBall(GetTree());
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     private ScoreManager ScoreManager => GetNodeHelper.GetScoreManager(GetTree());
+    private AnimatedSprite2D Animation => GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     
     private Area2D swingArea;
 
@@ -74,6 +75,8 @@ public partial class Enemy : CharacterBody2D
     {
         // if not on the back of the court, go there
         
+        Animation.Play("idle");
+        
         if (Shadow.PlayerBall)
         {
             enemyState = EnemyState.Repositioning;
@@ -87,11 +90,14 @@ public partial class Enemy : CharacterBody2D
         if (Math.Abs(Position.X - Shadow.Position.X) < 10)
         {
             Velocity = Vector2.Zero;
+            Animation.Play("idle");
             return;
         }
         
         var directionToBall = Position.DirectionTo(new (Shadow.Position.X, Position.Y));
         Velocity = directionToBall * movementSpeed * (float)delta;
+        
+        Animation.Play("walk");
     }
 
     private void ProcessSwinging()
@@ -117,6 +123,7 @@ public partial class Enemy : CharacterBody2D
             if (Shadow.IsReachableHeight)
             {
                 ApplyForces();
+                Animation.Play("swing");
                 
                 Shadow.BouncedOnce = false;
                 
