@@ -33,20 +33,25 @@ public partial class Enemy : CharacterBody2D
     
     public override void _Process(double delta)
     {
+        if (ScoreManager.Winner.HasValue)
+        {
+            HandleRoundWin();
+        }
+    }
+
+    private void HandleRoundWin()
+    {
         if (ScoreManager.Winner == Person.Player)
         {
-            VsScreen.SpawnScreen(GetTree().CurrentScene, "Bitches be shoppin\'", "res://Scenes/Enemies/Enemy.tscn");
-            
-            var gameRoom = GetNodeHelper.GetGameRoom(GetTree());
-            gameRoom.QueueFree();
+            GoToNextRound();
         }
         else
         {
-            VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tent...?", "res://Scenes/Enemies/Enemy.tscn");
-            
-            var gameRoom = GetNodeHelper.GetGameRoom(GetTree());
-            gameRoom.QueueFree();
+            RestartRound();
         }
+        
+        var gameRoom = GetNodeHelper.GetGameRoom(GetTree());
+        gameRoom.QueueFree();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -79,6 +84,8 @@ public partial class Enemy : CharacterBody2D
 
     private void ProcessRepositioning(double delta)
     {
+        if (Name == "TentOpponent") return;
+        
         if (Math.Abs(Position.X - Shadow.Position.X) < 10)
         {
             Velocity = Vector2.Zero;
@@ -134,6 +141,9 @@ public partial class Enemy : CharacterBody2D
         enemyState = EnemyState.Waiting;
         enemyRect.Color = Colors.Orange;
     }
+    
+    public virtual void GoToNextRound() { }
+    public virtual void RestartRound() { }
 }
 
 public enum EnemyState
