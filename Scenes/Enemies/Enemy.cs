@@ -13,7 +13,6 @@ public partial class Enemy : CharacterBody2D
     private ScoreManager ScoreManager => GetNodeHelper.GetScoreManager(GetTree());
     
     private Area2D swingArea;
-    private ColorRect enemyRect;
 
     private int movementSpeed = 5000;
     private Stopwatch swingDurationTimer = new();
@@ -21,7 +20,6 @@ public partial class Enemy : CharacterBody2D
     private void FindNodes()
     {
         swingArea = GetNode<Area2D>("SwingArea");
-        enemyRect = GetNode<ColorRect>("EnemyRect");
     }
     
     public override void _Ready()
@@ -115,7 +113,6 @@ public partial class Enemy : CharacterBody2D
             
             enemyState = EnemyState.Swinging;
             Velocity = Vector2.Zero;
-            enemyRect.Color = Colors.Red;
 
             if (Shadow.IsReachableHeight)
             {
@@ -139,7 +136,6 @@ public partial class Enemy : CharacterBody2D
         swingDurationTimer.Reset();
         
         enemyState = EnemyState.Waiting;
-        enemyRect.Color = Colors.Orange;
     }
     
     public virtual void GoToNextRound() { }
