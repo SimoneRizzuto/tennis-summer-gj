@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo7rw3ahvorw0"]
+[gd_scene load_steps=13 format=3 uid="uid://bo7rw3ahvorw0"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_1ymeg"]
 [ext_resource type="Script" path="res://Scenes/Enemies/AgentOpponent.cs" id="2_04f12"]
 [ext_resource type="Texture2D" uid="uid://ph74mvrqe857" path="res://Assets/Sprites/AGENT10 Spritesheet.png" id="4_e35l0"]
+[ext_resource type="AudioStream" uid="uid://bk5gjrnhs1ux3" path="res://Assets/Audio/SFX - Baseball hit.ogg" id="4_icomm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3wxo"]
 size = Vector2(34.5, 29.5625)
@@ -84,3 +85,6 @@ shape = SubResource("RectangleShape2D_y3wxo")
 position = Vector2(3, -18)
 sprite_frames = SubResource("SpriteFrames_pdb0u")
 animation = &"idle"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_icomm")

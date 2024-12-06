@@ -12,6 +12,7 @@ public partial class Player : CharacterBody2D
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     private Area2D SwingArea => GetNode<Area2D>("SwingArea");
     private AnimatedSprite2D Animation => GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+    private AudioStreamPlayer2D BallHit => GetNode<AudioStreamPlayer2D>("Audio");
 
     
     
@@ -25,7 +26,7 @@ public partial class Player : CharacterBody2D
     private float moveSpeed = 7500f;
     
     private readonly Stopwatch swingDurationTimer = new();
-    private int swingDuration = 2000;
+    private int swingDuration = 750;
 
     public override void _Ready()
     {
@@ -183,6 +184,8 @@ public partial class Player : CharacterBody2D
 
         Shadow.PlayerBall = true;
         Shadow.BouncedOnce = false;
+        
+        BallHit.Play();
 
         //GD.Print($"Ball Height: {height}, {Enum.GetName(swingDirection)}");
     }

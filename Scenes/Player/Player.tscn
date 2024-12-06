@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://w8khwh583how"]
+[gd_scene load_steps=14 format=3 uid="uid://w8khwh583how"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_3e4ad"]
 [ext_resource type="Texture2D" uid="uid://ctst0j13p2luc" path="res://Assets/Sprites/QUINTEN Spritesheet.png" id="2_mh0uf"]
+[ext_resource type="AudioStream" uid="uid://bk5gjrnhs1ux3" path="res://Assets/Audio/SFX - Baseball hit.ogg" id="3_h71vr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr074"]
 size = Vector2(42, 38.5)
@@ -107,3 +108,6 @@ shape = SubResource("RectangleShape2D_w3wec")
 position = Vector2(6, -16)
 sprite_frames = SubResource("SpriteFrames_eoxt3")
 animation = &"idle"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h71vr")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwfe401akeiv7"]
+[gd_scene load_steps=13 format=3 uid="uid://cwfe401akeiv7"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_q2iuw"]
 [ext_resource type="Script" path="res://Scenes/Enemies/KidOpponent.cs" id="2_fehou"]
 [ext_resource type="Texture2D" uid="uid://dn18q3ghexk0i" path="res://Assets/Sprites/KID Spritesheet.png" id="3_7ofr4"]
+[ext_resource type="AudioStream" uid="uid://bk5gjrnhs1ux3" path="res://Assets/Audio/SFX - Baseball hit.ogg" id="4_itkrt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ka7ao"]
 atlas = ExtResource("3_7ofr4")
@@ -81,3 +82,6 @@ script = ExtResource("2_fehou")
 position = Vector2(7, -6)
 sprite_frames = SubResource("SpriteFrames_i3vpo")
 animation = &"idle"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_itkrt")

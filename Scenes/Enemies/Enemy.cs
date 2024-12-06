@@ -13,6 +13,8 @@ public partial class Enemy : CharacterBody2D
     private ScoreManager ScoreManager => GetNodeHelper.GetScoreManager(GetTree());
     private AnimatedSprite2D Animation => GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     
+    private AudioStreamPlayer2D BallHit => GetNode<AudioStreamPlayer2D>("Audio");
+    
     private Area2D swingArea;
 
     private int movementSpeed = 5000;
@@ -162,6 +164,9 @@ public partial class Enemy : CharacterBody2D
             Shadow.LinearVelocity = new(0, 150);
             Ball.LinearVelocity = new(0, 0);
         }
+        
+        // play sound
+        BallHit.Play();
     }
     
     private void StopSwing()
