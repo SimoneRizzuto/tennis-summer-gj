@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy1s7v4k78mn0"]
+[gd_scene load_steps=6 format=3 uid="uid://cy1s7v4k78mn0"]
 
 [ext_resource type="FontFile" uid="uid://bnmhqh7pxbexd" path="res://ReaperFont.ttf" id="1_3akci"]
 [ext_resource type="Script" path="res://Scenes/UI/Main Menu/MainMenu.cs" id="1_hncj5"]
+[ext_resource type="Texture2D" uid="uid://ctm2ogxe2eckn" path="res://Assets/Sprites/Title screen Background.png" id="2_d0om8"]
 [ext_resource type="Script" path="res://Scenes/UI/Main Menu/QuitButton.cs" id="2_rbhay"]
+
+[sub_resource type="Theme" id="Theme_l1irk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,40 +16,89 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hncj5")
 
+[node name="TitleScreenBackground" type="Sprite2D" parent="."]
+position = Vector2(643, 364)
+scale = Vector2(1.02302, 1.02684)
+texture = ExtResource("2_d0om8")
+
 [node name="BeginButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 531.0
-offset_top = 277.0
-offset_right = 743.0
-offset_bottom = 306.0
+offset_left = 560.0
+offset_top = 262.0
+offset_right = 717.0
+offset_bottom = 291.0
 theme_override_fonts/font = ExtResource("1_3akci")
 text = "Begin"
 
 [node name="FullscreenButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 531.0
-offset_top = 307.0
-offset_right = 743.0
-offset_bottom = 336.0
+offset_left = 560.0
+offset_top = 292.0
+offset_right = 717.0
+offset_bottom = 321.0
 theme_override_fonts/font = ExtResource("1_3akci")
 text = "Fullscreen"
 
-[node name="CreditsButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 531.0
-offset_top = 337.0
-offset_right = 743.0
-offset_bottom = 366.0
-theme_override_fonts/font = ExtResource("1_3akci")
-text = "Credits
-"
-
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 531.0
-offset_top = 367.0
-offset_right = 743.0
-offset_bottom = 398.0
+offset_left = 560.0
+offset_top = 322.0
+offset_right = 717.0
+offset_bottom = 353.0
 theme_override_fonts/font = ExtResource("1_3akci")
 text = "Quit"
 script = ExtResource("2_rbhay")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 995.0
+offset_top = 46.0
+offset_right = 1240.0
+offset_bottom = 248.0
+color = Color(0, 0, 0, 0.686275)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 226.0
+offset_bottom = 237.0
+theme = SubResource("Theme_l1irk")
+text = "KEYBOARD
+Z - LEFT CLICK: Swing Down
+X - RIGHT CLICK: Swing Up
+
+CONTROLLER
+A: Swing Down
+B: Swing Up
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 209.0
+offset_right = 734.0
+offset_bottom = 264.0
+theme_override_colors/font_color = Color(1, 0.909804, 0.109804, 1)
+theme_override_fonts/font = ExtResource("1_3akci")
+theme_override_font_sizes/font_size = 40
+text = "TENNIS!"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 624.0
+offset_right = 777.0
+offset_bottom = 715.0
+color = Color(0, 0, 0, 0.686275)
+
+[node name="Label2" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 248.0
+offset_bottom = 81.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "PROGRAMMER: Simone Rizzuto
+ARTIST: Oliver Brown
+SOUNDS: Kaelin Stemmler"
