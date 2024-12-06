@@ -152,8 +152,16 @@ public partial class Enemy : CharacterBody2D
 
     private void ApplyForces()
     {
-        Shadow.LinearVelocity = new(0, 150);
-        Ball.LinearVelocity = new(0, 0);
+        if (Name == "BaseballOpponent")
+        {
+            Shadow.LinearVelocity = new(0, 25);
+            Ball.LinearVelocity = new(0, -600);
+        }
+        else
+        {
+            Shadow.LinearVelocity = new(0, 150);
+            Ball.LinearVelocity = new(0, 0);
+        }
     }
     
     private void StopSwing()
