@@ -28,13 +28,13 @@ public partial class VsScreen : Control
         }
     }
 
-    public static void SpawnScreen(Node nodeToSpawnOn)
+    public static void SpawnScreen(Node nodeToSpawnOn, string opponentLabel, string opponentScenePath)
     {
         var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
         var vsScreen = (VsScreen)scene;
         
-        vsScreen.OpponentLabel.Text = "The Tent...?";
-        vsScreen.OpponentScenePath = "res://Scenes/Enemies/Enemy.tscn"; // change to Tent opponent
+        vsScreen.OpponentLabel.Text = opponentLabel;
+        vsScreen.OpponentScenePath = opponentScenePath;
         
         nodeToSpawnOn.AddChild(scene);
     }

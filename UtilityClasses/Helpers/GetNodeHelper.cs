@@ -65,4 +65,16 @@ public static class GetNodeHelper
         
         return scoreManager;
     }
+    
+    public static GameRoom GetGameRoom(SceneTree tree)
+    {
+        var gameRoomNodes = tree.GetNodesInGroup(NodeGroup.GameRoom);
+        var gameRoom = gameRoomNodes.Cast<GameRoom>().FirstOrDefault();
+        if (gameRoom == null)
+        {
+            GD.PrintErr($"{nameof(gameRoom)} was null.");
+        }
+        
+        return gameRoom;
+    }
 }

@@ -18,6 +18,7 @@ public static class NodeGroup
     public const string Shadow = "shadow";
     public const string Net = "net";
     public const string ScoreManager = "score manager";
+    public const string GameRoom = "game room";
 }
 
 public static class HeightLevel

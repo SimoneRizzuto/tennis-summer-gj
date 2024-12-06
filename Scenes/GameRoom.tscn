@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b77spxxh3211f" path="res://Assets/Sprites/Court/crowds_1.png" id="6_nqrnd"]
 [ext_resource type="PackedScene" uid="uid://dhxuetmcd6q1x" path="res://Scenes/ScoreDisplay/ScoreDisplay.tscn" id="10_gulyr"]
 
-[node name="GameRoom" type="Node2D"]
+[node name="GameRoom" type="Node2D" groups=["game room"]]
 y_sort_enabled = true
 script = ExtResource("1_1uhcs")
 

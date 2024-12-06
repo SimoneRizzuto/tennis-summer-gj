@@ -10,6 +10,8 @@ public partial class Enemy : CharacterBody2D
 
     private Ball Ball => GetNodeHelper.GetBall(GetTree());
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
+    private ScoreManager ScoreManager => GetNodeHelper.GetScoreManager(GetTree());
+    
     private Area2D swingArea;
     private ColorRect enemyRect;
 
@@ -18,8 +20,6 @@ public partial class Enemy : CharacterBody2D
 
     private void FindNodes()
     {
-        var tree = GetTree();
-
         swingArea = GetNode<Area2D>("SwingArea");
         enemyRect = GetNode<ColorRect>("EnemyRect");
     }
@@ -33,7 +33,20 @@ public partial class Enemy : CharacterBody2D
     
     public override void _Process(double delta)
     {
-        FindNodes();
+        if (ScoreManager.Winner == Person.Player)
+        {
+            VsScreen.SpawnScreen(GetTree().CurrentScene, "Bitches be shoppin\'", "res://Scenes/Enemies/Enemy.tscn");
+            
+            var gameRoom = GetNodeHelper.GetGameRoom(GetTree());
+            gameRoom.QueueFree();
+        }
+        else
+        {
+            VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tent...?", "res://Scenes/Enemies/Enemy.tscn");
+            
+            var gameRoom = GetNodeHelper.GetGameRoom(GetTree());
+            gameRoom.QueueFree();
+        }
     }
 
     public override void _PhysicsProcess(double delta)

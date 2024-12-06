@@ -8,6 +8,8 @@ public partial class ScoreManager : Node2D
     public string PlayerDisplayScore => DisplayScore(playerScore);
     public string OpponentDisplayScore => DisplayScore(opponentScore);
     public bool ScoreHasBeenTallied;
+
+    public Person? Winner; 
     
     private Ball Ball => GetNodeHelper.GetBall(GetTree());
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
@@ -81,6 +83,11 @@ public partial class ScoreManager : Node2D
                 {
                     playerScore++;
                 }
+                
+                if (playerScore > 4)
+                {
+                    Winner = Person.Player;
+                }
 
                 break;
             }
@@ -93,6 +100,11 @@ public partial class ScoreManager : Node2D
                 else
                 {
                     opponentScore++;
+                }
+
+                if (opponentScore > 4)
+                {
+                    Winner = Person.Opponent;
                 }
 
                 break;
