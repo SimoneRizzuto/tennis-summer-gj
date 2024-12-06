@@ -9,9 +9,11 @@ public partial class VsScreen : Control
 
     [Export] public string OpponentName = "placeholder name";
     [Export] public string OpponentScenePath = "";
+    [Export] public string OpponentPortraitPath = "";
     
     public Label PlayerLabel => GetNode<Label>("PlayerName");
     public Label OpponentLabel => GetNode<Label>("OpponentName");
+    public Sprite2D OpponentPortrait => GetNode<Sprite2D>("OpponentPortrait");
 
     public override void _Process(double delta)
     {
@@ -28,13 +30,16 @@ public partial class VsScreen : Control
         }
     }
 
-    public static void SpawnScreen(Node nodeToSpawnOn, string opponentLabel, string opponentScenePath)
+    public static void SpawnScreen(Node nodeToSpawnOn, string opponentLabel, string opponentScenePath, string opponentTexturePath)
     {
         var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
         var vsScreen = (VsScreen)scene;
         
         vsScreen.OpponentLabel.Text = opponentLabel;
         vsScreen.OpponentScenePath = opponentScenePath;
+        
+        var texture = GD.Load<Texture2D>(opponentTexturePath);
+        vsScreen.OpponentPortrait.Texture = texture;
         
         nodeToSpawnOn.AddChild(scene);
     }

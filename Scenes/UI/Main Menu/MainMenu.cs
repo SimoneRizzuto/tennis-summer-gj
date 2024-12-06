@@ -25,7 +25,7 @@ public partial class MainMenu : Control
     
     private void BeginIsPressed()
     {
-        VsScreen.SpawnScreen(GetParent(), "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn");
+        VsScreen.SpawnScreen(GetParent(), "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn", "");
         QueueFree();
     }
     

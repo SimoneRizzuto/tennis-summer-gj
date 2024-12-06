@@ -5,11 +5,11 @@ public partial class BaseballOpponent : Enemy
 {
 	public override void GoToNextRound()
 	{
-		VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tentacle of the Lake", "res://Scenes/Enemies/TentacleOpponent.tscn");
+		VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tentacle of the Lake", "res://Scenes/Enemies/TentacleOpponent.tscn", "res://Assets/Sprites/Tentacle Portrait.png");
 	}
 
 	public override void RestartRound()
 	{
-		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn");
+		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn", "");
 	}
 }
