@@ -12,7 +12,10 @@ public partial class Player : CharacterBody2D
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     private Area2D SwingArea => GetNode<Area2D>("SwingArea");
     private ColorRect PlayerRect => GetNode<ColorRect>("PlayerRect");
+    private AnimatedSprite2D Animation => GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
+    
+    
     private SwingDirection swingDirection = 0;
     private Direction lastMovedDirection = Direction.None;
 
@@ -196,4 +199,10 @@ public partial class Player : CharacterBody2D
             isInRange = false;
         }
     }
+}
+
+public enum PlayerState
+{
+    Idle = 0,
+    
 }
