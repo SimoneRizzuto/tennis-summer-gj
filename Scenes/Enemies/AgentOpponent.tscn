@@ -1,30 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo7rw3ahvorw0"]
+[gd_scene load_steps=12 format=3 uid="uid://bo7rw3ahvorw0"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_1ymeg"]
 [ext_resource type="Script" path="res://Scenes/Enemies/AgentOpponent.cs" id="2_04f12"]
-[ext_resource type="Texture2D" uid="uid://c2ptw5fyq0jxi" path="res://Assets/Sprites/BASEBALL Spritesheet.png" id="3_2dtrf"]
 [ext_resource type="Texture2D" uid="uid://ph74mvrqe857" path="res://Assets/Sprites/AGENT10 Spritesheet.png" id="4_e35l0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5v7gs"]
-atlas = ExtResource("3_2dtrf")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3wxo"]
+size = Vector2(33.5, 54.5625)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui1e1"]
+atlas = ExtResource("4_e35l0")
 region = Rect2(0, 0, 83, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8jry"]
-atlas = ExtResource("3_2dtrf")
+[sub_resource type="AtlasTexture" id="AtlasTexture_elsu7"]
+atlas = ExtResource("4_e35l0")
 region = Rect2(83, 0, 83, 33)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ir8vj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_257ud"]
 atlas = ExtResource("4_e35l0")
-region = Rect2(0, 72, 83, 24)
+region = Rect2(0, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjeeo"]
+atlas = ExtResource("4_e35l0")
+region = Rect2(0, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q50dw"]
+atlas = ExtResource("4_e35l0")
+region = Rect2(166, 33, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0je4"]
+atlas = ExtResource("4_e35l0")
+region = Rect2(249, 33, 83, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pdb0u"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5v7gs")
+"texture": SubResource("AtlasTexture_ui1e1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q8jry")
+"texture": SubResource("AtlasTexture_elsu7")
 }],
 "loop": true,
 "name": &"idle",
@@ -32,13 +46,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ir8vj")
+"texture": SubResource("AtlasTexture_257ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjeeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjeeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjeeo")
 }],
 "loop": false,
 "name": &"swing",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q50dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0je4")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
@@ -47,7 +76,11 @@ animations = [{
 [node name="AgentOpponent" instance=ExtResource("1_1ymeg")]
 script = ExtResource("2_04f12")
 
+[node name="SwingShape" parent="SwingArea" index="1"]
+position = Vector2(0.25, 21.7188)
+shape = SubResource("RectangleShape2D_y3wxo")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
-position = Vector2(7, -6)
+position = Vector2(3, -18)
 sprite_frames = SubResource("SpriteFrames_pdb0u")
-animation = &"swing"
+animation = &"walk"

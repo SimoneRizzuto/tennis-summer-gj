@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djjoj3c1vwxit"
+path="res://.godot/imported/SFX - Bounce.ogg-f2719eaadae7b8bc5c074abec6c536f6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX - Bounce.ogg"
+dest_files=["res://.godot/imported/SFX - Bounce.ogg-f2719eaadae7b8bc5c074abec6c536f6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

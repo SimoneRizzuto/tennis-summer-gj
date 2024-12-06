@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ch4g4o8j3ddjx"
+path="res://.godot/imported/Music - Tent Reveal.ogg-cf5d710aa67f7fb111c893258f09a075.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music - Tent Reveal.ogg"
+dest_files=["res://.godot/imported/Music - Tent Reveal.ogg-cf5d710aa67f7fb111c893258f09a075.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

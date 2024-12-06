@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddh2y5rcru4ha"]
+[gd_scene load_steps=7 format=3 uid="uid://ddh2y5rcru4ha"]
 
 [ext_resource type="Script" path="res://Scenes/Ball/Ball.cs" id="1_yk8th"]
 [ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="2_p1ok4"]
+[ext_resource type="AudioStream" uid="uid://djjoj3c1vwxit" path="res://Assets/Audio/SFX - Bounce.ogg" id="3_e3ga1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpab"]
 size = Vector2(12, 9)
@@ -54,3 +55,4 @@ color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Bounce" type="AudioStreamPlayer2D" parent="Ball"]
+stream = ExtResource("3_e3ga1")

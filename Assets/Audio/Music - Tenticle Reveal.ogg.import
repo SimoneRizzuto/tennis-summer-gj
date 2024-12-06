@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://by8lyq4bgbi0r"
+path="res://.godot/imported/Music - Tenticle Reveal.ogg-ca55ede70c632384175e987526921d58.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music - Tenticle Reveal.ogg"
+dest_files=["res://.godot/imported/Music - Tenticle Reveal.ogg-ca55ede70c632384175e987526921d58.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
