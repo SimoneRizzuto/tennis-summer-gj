@@ -29,7 +29,7 @@ public partial class MainMenu : Control
         var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
         var vsScreen = (VsScreen)scene;
         
-        vsScreen.OpponentName.Text = "The Tent...?";
+        vsScreen.OpponentLabel.Text = "The Tent...?";
         
         GetParent().AddChild(scene);
         QueueFree();

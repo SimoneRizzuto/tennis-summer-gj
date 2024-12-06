@@ -1,5 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bqknrg3wfck6f"]
 
+[ext_resource type="Script" path="res://Scenes/GameRoom.cs" id="1_1uhcs"]
 [ext_resource type="PackedScene" uid="uid://ddh2y5rcru4ha" path="res://Scenes/Ball/BallModule.tscn" id="1_nqnt0"]
 [ext_resource type="PackedScene" uid="uid://en3gl46s0wd5" path="res://Scenes/ScoreManager/ScoreManager.tscn" id="1_tpldh"]
 [ext_resource type="PackedScene" uid="uid://w8khwh583how" path="res://Scenes/Player/Player.tscn" id="2_mjkcp"]
@@ -8,11 +9,11 @@
 [ext_resource type="PhysicsMaterial" uid="uid://bauf00tw7aa4d" path="res://Scenes/Wall/WallMaterial.tres" id="4_gjy4a"]
 [ext_resource type="Texture2D" uid="uid://68w2scex2n1j" path="res://Assets/Sprites/Court/tennis_court.png" id="5_lnxt0"]
 [ext_resource type="Texture2D" uid="uid://b77spxxh3211f" path="res://Assets/Sprites/Court/crowds_1.png" id="6_nqrnd"]
-[ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="7_ik5ys"]
 [ext_resource type="PackedScene" uid="uid://dhxuetmcd6q1x" path="res://Scenes/ScoreDisplay/ScoreDisplay.tscn" id="10_gulyr"]
 
 [node name="GameRoom" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_1uhcs")
 
 [node name="ScoreDisplay" parent="." instance=ExtResource("10_gulyr")]
 offset_left = 381.0
@@ -57,9 +58,6 @@ position = Vector2(401, 380)
 
 [node name="Player" parent="." instance=ExtResource("2_mjkcp")]
 position = Vector2(399, 415)
-
-[node name="Enemy" parent="." instance=ExtResource("7_ik5ys")]
-position = Vector2(401, 273)
 
 [node name="Wall" parent="." instance=ExtResource("4_5kl3b")]
 position = Vector2(10, 195)
