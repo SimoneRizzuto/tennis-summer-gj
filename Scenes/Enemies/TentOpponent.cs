@@ -10,6 +10,6 @@ public partial class TentOpponent : Enemy
 
     public override void RestartRound()
     {
-        VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn", "");
+        VsScreen.SpawnScreen(GetTree().CurrentScene, "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn", "res://Assets/Sprites/Tent Portrait.png");
     }
 }
