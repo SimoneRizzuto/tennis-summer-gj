@@ -1,16 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://w8khwh583how"]
+[gd_scene load_steps=13 format=3 uid="uid://w8khwh583how"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Player.cs" id="1_3e4ad"]
+[ext_resource type="Texture2D" uid="uid://ctst0j13p2luc" path="res://Assets/Sprites/QUINTEN Spritesheet.png" id="2_mh0uf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lr074"]
 size = Vector2(42, 38.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3wec"]
-size = Vector2(16, 11)
+size = Vector2(15, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4q7i"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(0, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jysjv"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(83, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoagi"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(0, 33, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu7fr"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(0, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5ymy"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(83, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxkjp"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(0, 33, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng6sn"]
+atlas = ExtResource("2_mh0uf")
+region = Rect2(83, 33, 83, 33)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eoxt3"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4q7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jysjv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoagi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu7fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ymy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5ymy")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxkjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng6sn")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
@@ -36,15 +99,13 @@ color = Color(0, 0, 0, 0.517647)
 position = Vector2(0, -28.75)
 shape = SubResource("RectangleShape2D_lr074")
 
-[node name="PlayerRect" type="ColorRect" parent="."]
-offset_left = -4.0
-offset_top = -14.0
-offset_right = 4.0
-
 [node name="BodyShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_w3wec")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(6, -16)
 sprite_frames = SubResource("SpriteFrames_eoxt3")
-animation = &"walk"
+animation = &"swing"
+frame = 2
+frame_progress = 1.0

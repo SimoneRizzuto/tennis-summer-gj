@@ -52,3 +52,5 @@ offset_right = 3.0
 offset_bottom = 3.0
 color = Color(0.690196, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Bounce" type="AudioStreamPlayer2D" parent="Ball"]

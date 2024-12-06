@@ -11,7 +11,6 @@ public partial class Player : CharacterBody2D
     private Ball Ball => GetNodeHelper.GetBall(GetTree());
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
     private Area2D SwingArea => GetNode<Area2D>("SwingArea");
-    private ColorRect PlayerRect => GetNode<ColorRect>("PlayerRect");
     private AnimatedSprite2D Animation => GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
     
@@ -62,6 +61,18 @@ public partial class Player : CharacterBody2D
             {
                 lastMovedDirection = direction;
             }
+
+            if (Animation.Animation!= "swing" || (Animation.Animation== "swing" && Animation.Frame == 3))
+            {
+                Animation.Play("walk");
+            }
+        }
+        else
+        {
+            if (Animation.Animation!= "swing" ||  (Animation.Animation== "swing" && Animation.Frame == 3))
+            {
+                Animation.Play("idle");
+            }
         }
     }
 
@@ -95,14 +106,14 @@ public partial class Player : CharacterBody2D
             swingDirection = SwingDirection.Down;
             swingDurationTimer.Restart();
             
-            PlayerRect.Color = Colors.Red;
+            Animation.Play("swing");
         }
         else if (Input.IsActionJustPressed(InputMapAction.SwingUp))
         {
             swingDirection = SwingDirection.Up;
             swingDurationTimer.Restart();
             
-            PlayerRect.Color = Colors.Blue;
+            Animation.Play("swing");
         }
     }
 
@@ -180,7 +191,10 @@ public partial class Player : CharacterBody2D
     {
         swingDurationTimer.Reset();
         
-        PlayerRect.Color = Colors.White;
+        if (Animation.Animation != "swing" ||  (Animation.Animation== "swing" && Animation.Frame == 3))
+        {
+            Animation.Play("idle");
+        }
     }
     
     // signals
