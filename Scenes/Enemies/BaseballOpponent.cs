@@ -10,6 +10,6 @@ public partial class BaseballOpponent : Enemy
 
 	public override void RestartRound()
 	{
-		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn", "");
+		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn", "res://Assets/Sprites/BASEBALL Portrait.png");
 	}
 }

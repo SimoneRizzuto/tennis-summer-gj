@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwchf2o6g14l2"
-path="res://.godot/imported/BASEBALL Portrait.png-cd8c9b2b3698cba0fa69057fac106a3f.ctex"
+path="res://.godot/imported/BASEBALL Portrait.png-38fcfe20c0d7aa287da921985259679f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/BASEBALL Portrait.png"
-dest_files=["res://.godot/imported/BASEBALL Portrait.png-cd8c9b2b3698cba0fa69057fac106a3f.ctex"]
+source_file="res://Assets/Sprites/BASEBALL Portrait.png"
+dest_files=["res://.godot/imported/BASEBALL Portrait.png-38fcfe20c0d7aa287da921985259679f.ctex"]
 
 [params]
 

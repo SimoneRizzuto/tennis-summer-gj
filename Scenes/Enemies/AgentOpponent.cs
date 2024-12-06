@@ -5,7 +5,7 @@ public partial class AgentOpponent : Enemy
 {
 	public override void GoToNextRound()
 	{
-		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn", "");
+		VsScreen.SpawnScreen(GetTree().CurrentScene, "Joe Baseball", "res://Scenes/Enemies/BaseballOpponent.tscn", "res://Assets/Sprites/BASEBALL Portrait.png");
 	}
 
 	public override void RestartRound()
