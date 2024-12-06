@@ -9,6 +9,8 @@ public partial class Ball : RigidBody2D
     
     private double heightDropSpeed = 2;
     private Shadow Shadow => GetNodeHelper.GetShadow(GetTree());
+
+    private AudioStreamPlayer2D Bounce => GetNode<AudioStreamPlayer2D>("Bounce");
     
     public override void _Ready()
     {
@@ -40,6 +42,8 @@ public partial class Ball : RigidBody2D
             {
                 shadowNode.BouncedOnce = true;
             }
+            
+            Bounce.Play();
         }
     }
 }
