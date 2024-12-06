@@ -4,6 +4,7 @@ using TennisSummerGJ2024.UtilityClasses.Shared;
 
 public partial class VsScreen : Control
 {
+    private const string VsScreenPath = "res://Scenes/VsScreen/VsScreen.tscn";
     private const string MainGamePath = "res://Scenes/GameRoom.tscn";
 
     [Export] public string OpponentName = "placeholder name";
@@ -27,8 +28,14 @@ public partial class VsScreen : Control
         }
     }
 
-    public static void SpawnNewScreen()
+    public static void SpawnScreen(Node nodeToSpawnOn)
     {
+        var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
+        var vsScreen = (VsScreen)scene;
         
+        vsScreen.OpponentLabel.Text = "The Tent...?";
+        vsScreen.OpponentScenePath = "res://Scenes/Enemies/Enemy.tscn"; // change to Tent opponent
+        
+        nodeToSpawnOn.AddChild(scene);
     }
 }

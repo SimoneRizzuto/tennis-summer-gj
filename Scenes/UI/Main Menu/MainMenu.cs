@@ -5,7 +5,6 @@ using static Godot.DisplayServer;
 public partial class MainMenu : Control
 {
     private const string MainGamePath = "res://Scenes/GameRoom.tscn";
-    private const string VsScreenPath = "res://Scenes/VsScreen/VsScreen.tscn";
     
     private Button beginButton;
     private Button fullscreenButton;
@@ -26,13 +25,7 @@ public partial class MainMenu : Control
     
     private void BeginIsPressed()
     {
-        var scene = ResourceLoader.Load<PackedScene>(VsScreenPath).Instantiate();
-        var vsScreen = (VsScreen)scene;
-        
-        vsScreen.OpponentLabel.Text = "The Tent...?";
-        vsScreen.OpponentScenePath = "res://Scenes/Enemies/Enemy.tscn";
-        
-        GetParent().AddChild(scene);
+        VsScreen.SpawnScreen(GetParent());
         QueueFree();
     }
     
