@@ -40,7 +40,7 @@ public partial class Enemy : CharacterBody2D
 
     private void HandleRoundWin()
     {
-        if (ScoreManager.Winner == Person.Player)
+        if (true/*ScoreManager.Winner == Person.Player*/)
         {
             GoToNextRound();
         }
@@ -74,8 +74,11 @@ public partial class Enemy : CharacterBody2D
     private void ProcessWaiting()
     {
         // if not on the back of the court, go there
-        
-        Animation.Play("idle");
+
+        if (Name != "TentOpponent")
+        {
+            Animation.Play("idle");
+        }
         
         if (Shadow.PlayerBall)
         {
@@ -90,18 +93,30 @@ public partial class Enemy : CharacterBody2D
         if (Math.Abs(Position.X - Shadow.Position.X) < 10)
         {
             Velocity = Vector2.Zero;
-            Animation.Play("idle");
+            if (Animation.Animation != "swing")
+            {
+                Animation.Play("idle");
+            }
             return;
         }
         
         var directionToBall = Position.DirectionTo(new (Shadow.Position.X, Position.Y));
         Velocity = directionToBall * movementSpeed * (float)delta;
+
+        if (Animation.Animation != "swing")
+        {
+            Animation.Play("walk");
+        }
         
-        Animation.Play("walk");
     }
 
     private void ProcessSwinging()
     {
+        if (Name != "TentOpponent" && Animation.Animation != "swing")
+        {
+            Animation.Play("swing");
+        }
+        
         if (swingDurationTimer.ElapsedMilliseconds > 1500)
         {
             StopSwing();
@@ -123,7 +138,10 @@ public partial class Enemy : CharacterBody2D
             if (Shadow.IsReachableHeight)
             {
                 ApplyForces();
-                Animation.Play("swing");
+                if (Name != "TentOpponent")
+                {
+                    Animation.Play("swing");
+                }
                 
                 Shadow.BouncedOnce = false;
                 

@@ -1,7 +1,87 @@
-[gd_scene load_steps=3 format=3 uid="uid://dihfhauiifbw6"]
+[gd_scene load_steps=13 format=3 uid="uid://dihfhauiifbw6"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_pkudx"]
 [ext_resource type="Script" path="res://Scenes/Enemies/BaseballOpponent.cs" id="2_8up88"]
+[ext_resource type="Texture2D" uid="uid://c2ptw5fyq0jxi" path="res://Assets/Sprites/BASEBALL Spritesheet.png" id="3_6usqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v7gs"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(0, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8jry"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(83, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7f4k"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(0, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jywvn"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(83, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vomv2"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(249, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x8ll"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(249, 66, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j32c3"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(0, 33, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7jf5"]
+atlas = ExtResource("3_6usqf")
+region = Rect2(83, 33, 83, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lyeb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8jry")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7f4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jywvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vomv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x8ll")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j32c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7jf5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="BaseballOpponent" instance=ExtResource("1_pkudx")]
 script = ExtResource("2_8up88")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(7, -17)
+sprite_frames = SubResource("SpriteFrames_lyeb2")
+animation = &"swing"

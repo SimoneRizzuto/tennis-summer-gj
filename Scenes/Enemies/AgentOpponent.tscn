@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo7rw3ahvorw0"]
+[gd_scene load_steps=9 format=3 uid="uid://bo7rw3ahvorw0"]
 
 [ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_1ymeg"]
 [ext_resource type="Script" path="res://Scenes/Enemies/AgentOpponent.cs" id="2_04f12"]
+[ext_resource type="Texture2D" uid="uid://c2ptw5fyq0jxi" path="res://Assets/Sprites/BASEBALL Spritesheet.png" id="3_2dtrf"]
+[ext_resource type="Texture2D" uid="uid://ph74mvrqe857" path="res://Assets/Sprites/AGENT10 Spritesheet.png" id="4_e35l0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v7gs"]
+atlas = ExtResource("3_2dtrf")
+region = Rect2(0, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8jry"]
+atlas = ExtResource("3_2dtrf")
+region = Rect2(83, 0, 83, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir8vj"]
+atlas = ExtResource("4_e35l0")
+region = Rect2(0, 72, 83, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdb0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v7gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8jry")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir8vj")
+}],
+"loop": false,
+"name": &"swing",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="AgentOpponent" instance=ExtResource("1_1ymeg")]
 script = ExtResource("2_04f12")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(7, -6)
+sprite_frames = SubResource("SpriteFrames_pdb0u")
+animation = &"swing"
