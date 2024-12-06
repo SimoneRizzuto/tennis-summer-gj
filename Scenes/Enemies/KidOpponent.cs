@@ -5,7 +5,7 @@ public partial class KidOpponent : Enemy
 {
 	public override void GoToNextRound()
 	{
-		VsScreen.SpawnScreen(GetTree().CurrentScene, "Agent 10", "res://Scenes/Enemies/AgentOpponent.tscn", "res://Assets/Sprites/Agent 10 Portrait.png", "");
+		VsScreen.SpawnScreen(GetTree().CurrentScene, "Agent 10", "res://Scenes/Enemies/AgentOpponent.tscn", "res://Assets/Sprites/Agent 10 Portrait.png", "res://Assets/Audio/Music - Agent 10.ogg");
 	}
 
 	public override void RestartRound()

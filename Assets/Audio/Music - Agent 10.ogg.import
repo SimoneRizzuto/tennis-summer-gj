@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgc8dufxtuyss"
+path="res://.godot/imported/Music - Agent 10.ogg-88ba7fc1a9f90d4df54fac0538ec75f3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/Music - Agent 10.ogg"
+dest_files=["res://.godot/imported/Music - Agent 10.ogg-88ba7fc1a9f90d4df54fac0538ec75f3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

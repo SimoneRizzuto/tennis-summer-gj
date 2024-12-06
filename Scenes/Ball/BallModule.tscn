@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddh2y5rcru4ha"]
+[gd_scene load_steps=15 format=3 uid="uid://ddh2y5rcru4ha"]
 
 [ext_resource type="Script" path="res://Scenes/Ball/Ball.cs" id="1_yk8th"]
 [ext_resource type="Script" path="res://Scenes/Ball/Shadow.cs" id="2_p1ok4"]
 [ext_resource type="AudioStream" uid="uid://djjoj3c1vwxit" path="res://Assets/Audio/SFX - Bounce.ogg" id="3_e3ga1"]
+[ext_resource type="Texture2D" uid="uid://by5n3vb2qlui2" path="res://Assets/Sprites/TENNIS BALL.png" id="4_rcknl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpab"]
 size = Vector2(12, 9)
@@ -13,7 +14,57 @@ rough = true
 bounce = 0.75
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyq14"]
-radius = 5.0
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us2vg"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(0, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wotvq"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(5, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcubw"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(10, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12qeo"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(0, 5, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrgj0"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(5, 5, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dvt0"]
+atlas = ExtResource("4_rcknl")
+region = Rect2(10, 5, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eo8w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us2vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wotvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcubw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12qeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrgj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dvt0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Shadow" type="RigidBody2D" groups=["shadow"]]
 gravity_scale = 0.0
@@ -46,13 +97,8 @@ script = ExtResource("1_yk8th")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("CircleShape2D_yyq14")
 
-[node name="BallRect" type="ColorRect" parent="Ball"]
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 3.0
-offset_bottom = 3.0
-color = Color(0.690196, 0.141176, 0.141176, 1)
-metadata/_edit_use_anchors_ = true
-
 [node name="Bounce" type="AudioStreamPlayer2D" parent="Ball"]
 stream = ExtResource("3_e3ga1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
+sprite_frames = SubResource("SpriteFrames_eo8w3")
