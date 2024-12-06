@@ -157,7 +157,7 @@ public partial class Enemy : CharacterBody2D
         if (Name == "BaseballOpponent")
         {
             Shadow.LinearVelocity = new(0, 25);
-            Ball.LinearVelocity = new(0, -600);
+            Ball.LinearVelocity = new(0, -400);
         }
         else
         {
