@@ -40,7 +40,7 @@ public partial class Enemy : CharacterBody2D
 
     private void HandleRoundWin()
     {
-        if (true/*ScoreManager.Winner == Person.Player*/)
+        if (ScoreManager.Winner == Person.Player)
         {
             GoToNextRound();
         }
