@@ -5,7 +5,7 @@ public partial class TentOpponent : Enemy
 {
     public override void GoToNextRound()
     {
-        VsScreen.SpawnScreen(GetTree().CurrentScene, "Bitches be shoppin\'", "res://Scenes/Enemies/Enemy.tscn");
+        VsScreen.SpawnScreen(GetTree().CurrentScene, "Ben Ten (10 year old)", "res://Scenes/Enemies/KidOpponent.tscn");
     }
 
     public override void RestartRound()

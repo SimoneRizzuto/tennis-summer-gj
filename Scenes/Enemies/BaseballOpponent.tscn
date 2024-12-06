@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dihfhauiifbw6"]
+
+[ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_pkudx"]
+[ext_resource type="Script" path="res://Scenes/Enemies/BaseballOpponent.cs" id="2_8up88"]
+
+[node name="BaseballOpponent" instance=ExtResource("1_pkudx")]
+script = ExtResource("2_8up88")

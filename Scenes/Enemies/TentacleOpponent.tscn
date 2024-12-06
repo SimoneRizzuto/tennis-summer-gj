@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw4fqgdsgaejv"]
+
+[ext_resource type="PackedScene" uid="uid://blsx4f30img07" path="res://Scenes/Enemies/Enemy.tscn" id="1_joqts"]
+[ext_resource type="Script" path="res://TentacleOpponent.cs" id="2_yefc6"]
+
+[node name="TentacleOpponent" instance=ExtResource("1_joqts")]
+script = ExtResource("2_yefc6")
