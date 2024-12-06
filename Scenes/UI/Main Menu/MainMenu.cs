@@ -8,7 +8,6 @@ public partial class MainMenu : Control
     
     private Button beginButton;
     private Button fullscreenButton;
-    private Button creditsButton;
     
     public override void _Ready()
     {
@@ -16,11 +15,9 @@ public partial class MainMenu : Control
         
         beginButton = GetNode<Button>("BeginButton");
         fullscreenButton = GetNode<Button>("FullscreenButton");
-        creditsButton = GetNode<Button>("CreditsButton");
 
         beginButton.Pressed += BeginIsPressed;
         fullscreenButton.Pressed += FullscreenIsPressed;
-        creditsButton.Pressed += CreditsIsPressed;
     }
     
     private void BeginIsPressed()
@@ -41,10 +38,5 @@ public partial class MainMenu : Control
         {
             WindowSetMode(WindowMode.Fullscreen);
         }
-    }
-    
-    private void CreditsIsPressed()
-    {
-        
     }
 }
