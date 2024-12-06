@@ -61,7 +61,7 @@ public partial class Shadow : RigidBody2D
         Ball.LinearVelocity = new(x, y);
     }
     
-    public static void RespawnBall(SceneTree tree)
+    public static void RespawnBall(SceneTree tree, Node gameRoom)
     {
         var oldShadowBall = GetNodeHelper.GetShadow(tree);
         oldShadowBall.QueueFree();
@@ -71,6 +71,6 @@ public partial class Shadow : RigidBody2D
         var newShadowBall = (Node2D)scene;
         newShadowBall.Position = new(403, 393);
         
-        tree.CurrentScene.AddChild(newShadowBall);
+        gameRoom.AddChild(newShadowBall);
     }
 }

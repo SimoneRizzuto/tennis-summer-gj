@@ -16,7 +16,7 @@ public partial class Main : Node2D
                 return;
             }
             
-            Shadow.RespawnBall(GetTree());
+            Shadow.RespawnBall(GetTree(), GetNodeHelper.GetGameRoom(GetTree()));
         }
     }
 

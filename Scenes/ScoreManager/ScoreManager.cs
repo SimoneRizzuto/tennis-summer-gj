@@ -128,7 +128,7 @@ public partial class ScoreManager : Node2D
 
     private void RespawnBall()
     {
-        Shadow.RespawnBall(GetTree());
+        Shadow.RespawnBall(GetTree(), GetNodeHelper.GetGameRoom(GetTree()));
         ScoreHasBeenTallied = false;
     }
 }
