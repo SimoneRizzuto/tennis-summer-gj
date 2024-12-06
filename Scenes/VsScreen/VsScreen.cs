@@ -21,7 +21,7 @@ public partial class VsScreen : Control
             
             GetParent().AddChild(scene);
             
-            scene.SpawnOpponent();
+            scene.SpawnOpponent(OpponentScenePath);
             
             QueueFree();
         }

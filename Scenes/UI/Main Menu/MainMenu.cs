@@ -30,6 +30,7 @@ public partial class MainMenu : Control
         var vsScreen = (VsScreen)scene;
         
         vsScreen.OpponentLabel.Text = "The Tent...?";
+        vsScreen.OpponentScenePath = "res://Scenes/Enemies/Enemy.tscn";
         
         GetParent().AddChild(scene);
         QueueFree();
