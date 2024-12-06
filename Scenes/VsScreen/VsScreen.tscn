@@ -44,3 +44,5 @@ offset_right = 1022.0
 offset_bottom = 602.0
 theme = ExtResource("1_wsdsf")
 text = "FUCK, HELP ME"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]

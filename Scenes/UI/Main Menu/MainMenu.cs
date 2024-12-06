@@ -22,7 +22,7 @@ public partial class MainMenu : Control
     
     private void BeginIsPressed()
     {
-        VsScreen.SpawnScreen(GetParent(), "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn", "res://Assets/Sprites/Tent Portrait.png");
+        VsScreen.SpawnScreen(GetParent(), "The Tent...?", "res://Scenes/Enemies/TentOpponent.tscn", "res://Assets/Sprites/Tent Portrait.png", "res://Assets/Audio/Music - Tent Reveal.ogg");
         QueueFree();
     }
     
