@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqfuh1w46oq1m"
+path="res://.godot/imported/SFX - Homerun.ogg-5bca5dceccd8ac76a3642e9ba90bc827.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX - Homerun.ogg"
+dest_files=["res://.godot/imported/SFX - Homerun.ogg-5bca5dceccd8ac76a3642e9ba90bc827.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

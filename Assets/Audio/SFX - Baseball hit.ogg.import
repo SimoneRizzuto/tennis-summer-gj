@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bk5gjrnhs1ux3"
+path="res://.godot/imported/SFX - Baseball hit.ogg-32958ad01c41b08d3ab8f3f8f59d5e07.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX - Baseball hit.ogg"
+dest_files=["res://.godot/imported/SFX - Baseball hit.ogg-32958ad01c41b08d3ab8f3f8f59d5e07.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
